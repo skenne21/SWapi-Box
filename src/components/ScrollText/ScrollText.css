@@ -1,0 +1,49 @@
+.ScrollText {
+  margin: auto;
+  background-image: url('../../assets/text-background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 60%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.main-container__text {
+  display: flex;
+  justify-content: center;
+  height: 400px;
+  perspective: 400px;
+  font-size: 500%;
+  line-height: 150%;
+  letter-spacing: 6px;
+  color: yellow;
+  text-align: justify;
+  margin: auto;
+}
+
+.moving-text-box {
+  position: relative;
+  top: -100px;
+  transform-origin: 50% 100%;
+  animation: moveing-text-box 60s linear;
+}
+
+.fade {
+  position: relative;
+  width: 100%;
+  min-height: 60vh;
+  top: -25px;
+  background-image: linear-gradient(0deg, transparent, black 75%);
+  z-index: 1;
+}
+
+@keyFrames moveing-text-box {
+  0% {
+    top: 0;
+    transform: rotateX(20deg) translateZ(0);
+  }
+   100% {
+    top: -6000px;
+    transform: rotateX(25deg) translateZ(-2500px);
+   }
+}
