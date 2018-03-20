@@ -13,15 +13,13 @@ class App extends Component {
     this.state = {
       film: {},
       favorites: [],
+      cards: []
     }
   }
 
   getMovie = () => {
-    const randomMovie = Math.floor(Math.random() * (7 - 1)) + 1
-    fetch(`https://swapi.co/api/films/${randomMovie}/`)
-      .then(response => response.json())
+    swapiData.fetchMovie()
       .then(apiData => {
-        console.log(apiData)
         const movie = swapiData.cleanMovie(apiData);
         this.setState({film: movie})
       })
@@ -29,15 +27,11 @@ class App extends Component {
   }
 
   getCards = (userInput) => {
-    fetch(`https://swapi.co/api/${userInput}`)
-      .then(response => response.json())
-      .then(apiData => {
-        
-        // console.log(data)
-        // [input] = `${input}Data(data)`
-        
-      })
-      .catch(error => console.log(error));
+    if (userInput === 'people') {
+      const people = swapiData.fetchPeople()
+        .then(apiData => this.setState({people: apiData}))
+    }
+   
   }
   
 
@@ -49,14 +43,15 @@ class App extends Component {
   }
 
   render() {
-  const { favorites, film } = this.state; 
+  const { favorites, film, cards } = this.state; 
     return (
       <div className="App">
         <Header 
           favorites={favorites}/>
         <Nav/>
         <Main 
-          film={film}/>
+          film={film}
+          cards={cards}/>
       </div>
     );
   }

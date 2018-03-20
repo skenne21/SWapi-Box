@@ -5,9 +5,11 @@ import './Main.css'
 
 const Main = ({film}) => {
   return (
+  {
     <main>
       <ScrollText film={film} />
     </main>
+  }
   )
 }
 

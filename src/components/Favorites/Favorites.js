@@ -6,7 +6,7 @@ const Favorites = ({favorites}) => {
   return(
     <div className='Favorites'>
       <Button 
-        name={'Veiw Favorites'}
+        name={'View Favorites'}
       />
       <p>{favorites.length}</p>
     </div>
