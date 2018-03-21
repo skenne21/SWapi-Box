@@ -9,7 +9,13 @@ describe('Main', () => {
       opening: 'It is a dark time for...',
       year: '2002'
     }
-    const wrapper = shallow(<Main film={film} />)
+    const wrapper = shallow(
+      <Main 
+        film={film}
+        cards={[]} 
+      />)
     expect(wrapper).toMatchSnapshot();
   })
+
+  it
 })

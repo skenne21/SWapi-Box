@@ -1,11 +1,12 @@
 import React from 'react';
 import Card from '../Card/Card.js';
+import './CardsContainer.js';
 
 const CardsContainer = ({cards}) => {
-  const allCards = cards.map(card => <Card {...card} key={card.name}/>)
+  const createCards = cards.map(card => <Card {...card} key={card.name}/>)
   return (
     <div className='CardsContainer'>
-      {allCards}
+      {createCards}
     </div>
   )
 }

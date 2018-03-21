@@ -21,7 +21,7 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <Button
-          name="Veiw Favorites"
+          name="View Favorites"
 />,
         <p />,
       ],
@@ -34,7 +34,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
-          "name": "Veiw Favorites",
+          "name": "View Favorites",
         },
         "ref": null,
         "rendered": null,
@@ -62,7 +62,7 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Button
-            name="Veiw Favorites"
+            name="View Favorites"
 />,
           <p />,
         ],
@@ -75,7 +75,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
-            "name": "Veiw Favorites",
+            "name": "View Favorites",
           },
           "ref": null,
           "rendered": null,
