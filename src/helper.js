@@ -52,8 +52,57 @@ const fetchSpecies = (people) => {
   return Promise.all(promises)
 }
 
+const fetchPlanets = () => {
+  return fetch(`${apiRoot}planets`)
+    .then(response => response.json())
+    .then(data =>  cleanPlanets(data))
+    .then(planets => fetchResidents(planets))
+}
+
+const cleanPlanets = (data) => {
+  const planets = data.results.map( planet => ({
+    name: planet.name,
+    terrain: planet.terrain,
+    population: planet.population,
+    climate: planet.climate,
+    residents: planet.residents
+  }))
+  return planets;
+}
+
+const fetchResidents = (planets) => {
+  const planetPromise = planets.map( planet => {
+    const residentPromises = planet.residents.map( resident => {
+      return fetch(resident)
+        .then(response => response.json())
+        .then(data => data.name)
+    })
+    return Promise.all(residentPromises)
+      .then(data => ({...planet, residents: data}))
+  })
+  return Promise.all(planetPromise)
+}
+
+const fetchVehicles = () => {
+  return fetch(`${apiRoot}vehicles`)
+    .then(response => response.json())
+    .then(data => cleanVehicles(data))
+}
+
+const cleanVehicles = (data) => {
+  const vehicles = data.results.map( vehicle => ({
+    name: vehicle.name,
+    model: vehicle.model,
+    passengers: vehicle.passengers,
+    class: vehicle.vehicle_class,
+  }))
+  return vehicles
+}
+
 export default {
   cleanMovie, 
   fetchMovie, 
-  fetchPeople
+  fetchPeople, 
+  fetchPlanets, 
+  fetchVehicles
 };

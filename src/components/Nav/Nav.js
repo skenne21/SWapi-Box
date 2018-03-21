@@ -1,17 +1,20 @@
 import React from 'react';
 import Button from '../Button/Button.js';
 
-const Nav = () => {
+const Nav = ({controlFunc}) => {
   return(
     <div>
       <Button 
         name={'People'}
+        controlFunc={controlFunc}
       />
       <Button
-        name={'Planets'} 
+        name={'Planets'}
+        controlFunc={controlFunc} 
       />
       <Button 
         name={'Vehicles'}
+        controlFunc={controlFunc}
       />
     </div>
   )
