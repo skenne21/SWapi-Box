@@ -1,10 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Button = ({name}) => {
+const Button = ({name, controlFunc}) => {
   return (
     <div>
-      <button>{name}</button>  
+      <button
+        onClick={(() => { controlFunc(name)})}>{name}</button>  
     </div>
   )
 }

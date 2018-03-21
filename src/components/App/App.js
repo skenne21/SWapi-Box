@@ -26,29 +26,38 @@ class App extends Component {
       .catch(error => console.log(error));
   }
 
+  setCardsState = (apiData) => {
+    this.setState({cards: apiData})
+  }
+
   getCards = (userInput) => {
-    if (userInput === 'people') {
+    if (userInput === 'People') {
       const people = swapiData.fetchPeople()
-        .then(apiData => this.setState({people: apiData}))
+        .then(apiData => this.setCardsState(apiData))
     }
-   
+    if (userInput === 'Planets') {
+      const planets = swapiData.fetchPlanets()
+        .then(apiData => this.setCardsState(apiData))
+    }
+    if (userInput === 'Vehicles') {
+      const vehicles = swapiData.fetchVehicles()
+        .then( apiData => this.setCardsState(apiData))
+    }
+     
   }
   
-
- 
-
   componentDidMount() {
     // this.getMovie();
-    this.getCards('people');
   }
 
   render() {
-  const { favorites, film, cards } = this.state; 
+    const { favorites, film, cards } = this.state; 
     return (
       <div className="App">
         <Header 
           favorites={favorites}/>
-        <Nav/>
+        <Nav
+          controlFunc={this.getCards}/>
         <Main 
           film={film}
           cards={cards}/>
