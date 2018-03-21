@@ -19,12 +19,15 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <Button
+          controlFunc={undefined}
           name="People"
 />,
         <Button
+          controlFunc={undefined}
           name="Planets"
 />,
         <Button
+          controlFunc={undefined}
           name="Vehicles"
 />,
       ],
@@ -36,6 +39,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
+          "controlFunc": undefined,
           "name": "People",
         },
         "ref": null,
@@ -47,6 +51,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
+          "controlFunc": undefined,
           "name": "Planets",
         },
         "ref": null,
@@ -58,6 +63,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
+          "controlFunc": undefined,
           "name": "Vehicles",
         },
         "ref": null,
@@ -75,12 +81,15 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Button
+            controlFunc={undefined}
             name="People"
 />,
           <Button
+            controlFunc={undefined}
             name="Planets"
 />,
           <Button
+            controlFunc={undefined}
             name="Vehicles"
 />,
         ],
@@ -92,6 +101,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
+            "controlFunc": undefined,
             "name": "People",
           },
           "ref": null,
@@ -103,6 +113,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
+            "controlFunc": undefined,
             "name": "Planets",
           },
           "ref": null,
@@ -114,6 +125,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
+            "controlFunc": undefined,
             "name": "Vehicles",
           },
           "ref": null,

@@ -5,6 +5,7 @@ ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
   Symbol(enzyme.__unrendered__): <Main
+    cards={Array []}
     film={
         Object {
             "opening": "It is a dark time for...",

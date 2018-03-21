@@ -7,6 +7,7 @@ const fetchMovie = () => {
 }
 
 const cleanYear = (date) => {
+    console.log(date)
     const dates = date.split('-');
     return dates[0];
 };
@@ -94,7 +95,7 @@ const cleanVehicles = (data) => {
     name: vehicle.name,
     model: vehicle.model,
     passengers: vehicle.passengers,
-    class: vehicle.vehicle_class,
+    vehicleClass: vehicle.vehicle_class,
   }))
   return vehicles
 }
