@@ -1,9 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Card.css';
 import Button from '../Button/Button.js'
 
 const Card = (props) => {
-  const PickCards = (props) => {
+  const pickCards = (props) => {
     if (props.climate) {
       return planetCards(props);
     }
@@ -66,9 +67,20 @@ const Card = (props) => {
 
   return (
     <div className='card'>
-    {PickCards(props)}
+    {pickCards(props)}
     </div>
   )
 }
-
+Card.propTypes = {
+  name: PropTypes.string, 
+  terrain: PropTypes.string,  
+  climate: PropTypes.string, 
+  residents: PropTypes.array,
+  homeWorldName: PropTypes.string, 
+  species: PropTypes.string, 
+  population: PropTypes.string,
+  model: PropTypes.string, 
+  passengers: PropTypes.string, 
+  vehicleClass: PropTypes.string 
+}
 export default Card;

@@ -1,13 +1,11 @@
 const apiRoot = 'https://swapi.co/api/';
 
-const fetchMovie = () => {
-  const randomMovie = Math.floor(Math.random() * (7 - 1)) + 1
+const fetchMovie = (randomMovie) => {
   return fetch(`${apiRoot}films/${randomMovie}/`)
     .then(response => response.json())
 }
 
 const cleanYear = (date) => {
-    console.log(date)
     const dates = date.split('-');
     return dates[0];
 };
@@ -61,6 +59,7 @@ const fetchPlanets = () => {
 }
 
 const cleanPlanets = (data) => {
+  console.log(data)
   const planets = data.results.map( planet => ({
     name: planet.name,
     terrain: planet.terrain,
@@ -101,9 +100,12 @@ const cleanVehicles = (data) => {
 }
 
 export default {
-  cleanMovie, 
+  cleanMovie,
+  cleanYear, 
   fetchMovie, 
   fetchPeople, 
   fetchPlanets, 
-  fetchVehicles
+  fetchVehicles,
+  fetchHomeWorlds,
+  fetchSpecies,
 };

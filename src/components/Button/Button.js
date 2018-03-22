@@ -10,8 +10,10 @@ const Button = ({name, controlFunc}) => {
   )
 }
 
+Button.propTypes = {
+  name: PropTypes.string.isRequired,
+  controlFunc: PropTypes.func
+}
+
 export default Button;
 
-Button.propTypes = {
-  name: PropTypes.string.isRequired
-}

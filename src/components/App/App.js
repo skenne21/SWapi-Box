@@ -17,7 +17,8 @@ class App extends Component {
   }
 
   getMovie = () => {
-    swapiData.fetchMovie()
+    const randomMovie = Math.floor(Math.random() * (7 - 1)) + 1
+    swapiData.fetchMovie(randomMovie)
       .then(apiData => {
         const movie = swapiData.cleanMovie(apiData);
         this.setState({film: movie});
@@ -33,6 +34,7 @@ class App extends Component {
     if (userInput === 'People') {
       swapiData.fetchPeople()
         .then(apiData => this.setCardsState(apiData));
+      console.log(this.state.cards)
     }
     if (userInput === 'Planets') {
       swapiData.fetchPlanets()
