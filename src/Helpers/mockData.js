@@ -2,7 +2,7 @@ const mockMovie = () => {
   return {
     title: "The Empire Strikes Back",
     episodeId: 5,
-    openingCrawl: 'It is a dark time for the...',
+    opening_crawl: 'It is a dark time for the...',
     director: "Irvin Kershner", 
     release_date: '1980-05-17'
   };

@@ -11,7 +11,8 @@ class App extends Component {
     this.state = {
       film: {},
       favorites: [],
-      cards: [], 
+      cards: [],
+      isActive: '', 
       error: false
     };
   }
@@ -31,10 +32,10 @@ class App extends Component {
   }
 
   getCards = (userInput) => {
+    this.setState({isActive: userInput})
     if (userInput === 'People') {
       swapiData.fetchPeople()
         .then(apiData => this.setCardsState(apiData));
-      console.log(this.state.cards)
     }
     if (userInput === 'Planets') {
       swapiData.fetchPlanets()
@@ -51,13 +52,14 @@ class App extends Component {
   }
 
   render() {
-    const { favorites, film, cards } = this.state; 
+    const { favorites, film, cards, isActive } = this.state; 
     return (
       <div className="App">
         <Header 
           favorites={favorites}/>
         <Nav
-          controlFunc={this.getCards}/>
+          controlFunc={this.getCards}
+          isActive={isActive}/>
         <Main 
           film={film}
           cards={cards}/>
