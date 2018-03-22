@@ -18,8 +18,10 @@ const Main = ({film, cards}) => {
   )
 }
 
+Main.propTypes = {
+  film: PropTypes.object,
+  cards: PropTypes.array.isRequired
+}
+
 export default Main;
 
-Main.propTypes = {
-  film: PropTypes.object.isRequired
-}

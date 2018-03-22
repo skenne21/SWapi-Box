@@ -1,4 +1,5 @@
 import React from 'react';
+import PropType from 'prop-types';
 import Button from '../Button/Button.js';
 
 const Nav = ({controlFunc}) => {
@@ -19,6 +20,10 @@ const Nav = ({controlFunc}) => {
     </div>
   )
 
+}
+
+Nav.PropType = {
+  controlFunc: PropType.func.isRequired
 }
 
 export default Nav;
