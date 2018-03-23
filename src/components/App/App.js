@@ -17,6 +17,10 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    this.getMovie();
+  }
+
   getMovie = () => {
     const randomMovie = Math.floor(Math.random() * (7 - 1)) + 1
     swapiData.fetchMovie(randomMovie)
@@ -27,29 +31,56 @@ class App extends Component {
       .catch(error => this.setState({error: error}));
   }
 
+  getCards = (userInput, card ={}) => {
+    this.setState({isActive: userInput})
+    if (userInput === 'People') {
+      swapiData.fetchPeople()
+        .then(apiData => this.setCardsState(apiData))
+        .catch(error => this.setState({error: error}));
+    }
+    if (userInput === 'Planets') {
+      swapiData.fetchPlanets()
+        .then(apiData => this.setCardsState(apiData))
+        .catch(error => this.setState({error: error}));
+    }
+    if (userInput === 'Vehicles') {
+      swapiData.fetchVehicles()
+        .then( apiData => this.setCardsState(apiData))
+        .catch(error => this.setState({error: error}));
+    }  
+  };
+
   setCardsState = (apiData) => {
     this.setState({cards: apiData});
   }
 
-  getCards = (userInput) => {
-    this.setState({isActive: userInput})
-    if (userInput === 'People') {
-      swapiData.fetchPeople()
-        .then(apiData => this.setCardsState(apiData));
+  toggleFavorites = (name, card) => {
+    if (this.state.favorites.includes(card)) {
+      console.log(card)
+      this.removeFavorites(card);
+
+    } else {
+      console.log('toggle', card)
+      this.addFavorites(card);
+
     }
-    if (userInput === 'Planets') {
-      swapiData.fetchPlanets()
-        .then(apiData => this.setCardsState(apiData));
-    }
-    if (userInput === 'Vehicles') {
-      swapiData.fetchVehicles()
-        .then( apiData => this.setCardsState(apiData));
-    }  
-  };
-  
-  componentDidMount() {
-    this.getMovie();
   }
+
+  removeFavorites = (card) => {
+    card.id = undefined;
+    const filterFavs = this.state.favorites.filter( favs => {
+      return favs.id !== card.id
+    })
+    this.setState({favorites: filterFavs});
+  }
+
+  addFavorites = (card) => {
+    card.id = this.state.favorites.length;
+    const newFavorites = [...this.state.favorites, card];
+    this.setState({favorites: newFavorites});
+  }
+  
+  
 
   render() {
     const { favorites, film, cards, isActive } = this.state; 
@@ -62,7 +93,9 @@ class App extends Component {
           isActive={isActive}/>
         <Main 
           film={film}
-          cards={cards}/>
+          cards={cards}
+          toggleFavorites={this.toggleFavorites}
+        />
       </div>
     );
   }

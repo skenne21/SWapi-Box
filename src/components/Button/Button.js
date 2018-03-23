@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Button.css';
 
-const Button = ({name, controlFunc, isActive}) => {
-
+const Button = ({name, controlFunc, isActive, card = {}}) => {
   const selected = () => {
     if(isActive === name) {
+      return true;
+    }
+    if(card.id !== undefined) {
       return true;
     }
   }
@@ -14,7 +16,7 @@ const Button = ({name, controlFunc, isActive}) => {
     <div>
       <button
         className={selected() ? 'selected' : ''}
-        onClick={(() => { controlFunc(name)})}>{name}</button>  
+        onClick={(() => { controlFunc(name, card)})}>{name}</button>  
     </div>
   )
 }
@@ -22,7 +24,8 @@ const Button = ({name, controlFunc, isActive}) => {
 Button.propTypes = {
   name: PropTypes.string.isRequired,
   controlFunc: PropTypes.func, 
-  isActive: PropTypes.string
+  isActive: PropTypes.string, 
+  card: PropTypes.object
 }
 
 export default Button;

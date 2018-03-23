@@ -1,6 +1,8 @@
 import helper from './helper.js';
 import mockData from './mockData.js';
 
+// jest.mock('./helper.js');
+
 describe('Movie', () => {
   let mockMovieApi, randomMovie;
 
@@ -13,12 +15,6 @@ describe('Movie', () => {
     }));
 
     randomMovie = 3;
-  });
-
-  it('Should fetch a movie when fetchMovie method is called', () => {
-    expect(window.fetch).not.toHaveBeenCalled();
-    helper.fetchMovie(randomMovie);
-    expect(window.fetch).toHaveBeenCalled();
   });
 
   it('Should fetch the api with the right parameters', () => {
@@ -44,16 +40,9 @@ describe('Movie', () => {
     helper.cleanMovie(mockMovieApi);
     expect(helper.cleanMovie(mockMovieApi)).toEqual(expected);
   });
-
-  // it('Should call clean year function and pass the movie date', () => {
-  //   const apiDate = mockMovieApi.release_date
-  //   const expectedDate = '1980-05-17';
-  //   const cleanYearMock = jest.fn()
-  //   helper.cleanMovie(mockMovieApi)
-  //   expect(helper.cleanYear(apiDate)).toHaveBeenCalledWith(expectedDate)
-  // })
 });
 
+// not working!!!
 describe('People', () => {
   describe('fetchPeople method', () => {
     let mockPeopleApi;
@@ -67,19 +56,40 @@ describe('People', () => {
       }));
     });
 
-    it('Should call fetch with people', () => {
-      expect(window.fetch).not.toHaveBeenCalled();
+
+    it('Should fetch with the right parameters', async () => {
       helper.fetchPeople();
-      expect(window.fetch).toHaveBeenCalled();
+      expect(window.fetch).toHaveBeenCalledWith('https://swapi.co/api/people')
     });
 
-    it('Should fetch with the right parameters', () => {
+    it('Should call the fetchHomeWorlds function', () => {
+      const mockFetchHomeWorlds = jest.fn();
+      const mockFetchSpecies = jest.fn()
       helper.fetchPeople();
-      expect(window.fetch).toHaveBeenCalledWith('https://swapi.co/api/people');
-    });
+      expect(mockFetchHomeWorlds).toHaveBeenCalledWith(mockPeopleApi);
+    })
 
-    // test not passing
-    it('should return a person with homeworlds data', () => {
+    it('Should call the fetchSpecies function', () => {
+      const expected = [
+        {
+        name: "Luke Skywalker",
+        species: ["https://swapi.co/api/species/1/"],
+        homeWorldName: "Tatooine", 
+        population: "200000"
+        },{
+          name: "C-3PO",
+          species: ["https://swapi.co/api/species/1/"],
+          homeWorldName: "Tatooine", 
+          population: "200000"
+        }
+      ]
+      const mockFetchHomeWorlds = jest.fn();
+      const mockFetchSpecies = jest.fn()
+      helper.fetchPeople();
+      expect(mockFetchSpecies).toHaveBeenCalledWith(mockPeopleApi);
+    })
+
+    it('Should return a resolved object', () => {
       const expected = [
         {
           name: "Luke Skywalker",
@@ -92,44 +102,42 @@ describe('People', () => {
           species: 'human',
           population: 30000
         }
-      ];
-      // expect(window.fetch).toHaveBeenCalledWith('https://swapi.co/api/people')
+      ]
       helper.fetchPeople();
-      expect(helper.fetchPeople()).resolve.toEqual(expected);
-    });
-  });
-  
+      expect(helper.fetchPeople(mockMovieApi)).toEqual(expected)
+    })
 
-  // it('Should call fetchHomeWorlds',  async () => {
-    
-  //   expect(helper.fetchHomeWorlds(mockPeopleApi)).toHaveBeenCalled()
-  // })
-  // it('Should call fetchHomeWorlds and pass data')
-  // it('Should call fetchSpecies and pass people')
-  // it('')
-  // it('Should create a object for each person with a home world')
-});
+    it('Should handle a error if it does not get the right response',() => {
 
-// describe('Planets' , () => {
-//   let mockApi;
+    })
 
-//     beforeEach( () => {
-//       mockApi = mockData.mockApiPlanets();
+
       
-//       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-//           ok: 'true',
-//           json: () =>  Promise.resolve(mockApi)
-//       }))
-//     })
+  });  
+      
+  describe('fetchHomeWorlds methods', () => {
+    let mockApi;
 
-//     it('Should call fetch', () => {
-//         expect(window.fetch).not.toHaveBeenCalled()
-//         helper.fetchPlanets()
-//         expect(window.fetch).toHaveBeenCalled()
-//       })
+    beforeEach(() => {
+      mockApi = mockData.mockHomelandsData();
 
-//       it('Should fetch with the right parameters', () => {
-//         helper.fetchPlanets();
-//         expect(window.fetch).toHaveBeenCalledWith('https://swapi.co/api/planets');
-//       })
-//   })
+      window.fetch = jest.fn().mockIMplementation( () => Promise.resolve({
+        ok: 'true',
+        json: () => Promise.resolve()
+      })) 
+    })
+
+    it('Should call fetch with the url that it is passed', () => {
+      // helper.fetchHomeWorlds();
+
+    })
+
+    it('should return the resolved object', () => {
+
+    })
+
+    it('should produce an error if the resonse is not okay', () => {
+
+    })
+  })
+})

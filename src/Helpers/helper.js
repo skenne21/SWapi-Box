@@ -23,10 +23,10 @@ const fetchPeople = () => {
     .then(response => response.json())
     .then(apiData => fetchHomeWorlds(apiData.results))
     .then(people => fetchSpecies(people))
-    .catch(error => console.log(error));
 };
 
 const fetchHomeWorlds = (people) => {
+  console.log(people)
   const promises = people.map( person => {
     return fetch(person.homeworld)
       .then( response => response.json())
@@ -35,18 +35,17 @@ const fetchHomeWorlds = (people) => {
         species: person.species, 
         homeWorldName: homeworldData.name, 
         population:homeworldData.population
-      }))
-      .catch( error => console.log(error));   
+      }))   
   });
   return Promise.all(promises);
 };
 
 const fetchSpecies = (people) => {
+  console.log(people)
   const promises = people.map( person => {
     return fetch(person.species)
       .then(response => response.json())
       .then(speciesData => ({...person, species: speciesData.name}))
-      .catch( error => console.log(error));
   });
   return Promise.all(promises);
 };
@@ -71,16 +70,21 @@ const cleanPlanets = (planetData) => {
 
 const fetchResidents = (planets) => {
   const planetPromise = planets.map( planet => {
-    const residentPromises = planet.residents.map( resident => {
-      return fetch(resident)
-        .then(response => response.json())
-        .then(residentData => residentData.name);
-    });
+    const residentPromises = residents(planet);
     return Promise.all(residentPromises)
       .then(planetData => ({...planet, residents: planetData}));
   });
   return Promise.all(planetPromise);
 };
+
+const residents = (planet) => {
+  const residentPromises = planet.residents.map( resident => {
+      return fetch(resident)
+        .then(response => response.json())
+        .then(residentData => residentData.name);
+    });
+  return residentPromises;
+}
 
 const fetchVehicles = () => {
   return fetch(`${apiRoot}vehicles`)
