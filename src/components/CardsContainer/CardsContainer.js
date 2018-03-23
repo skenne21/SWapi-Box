@@ -3,7 +3,7 @@ import PropType from 'prop-types'
 import Card from '../Card/Card.js';
 import './CardsContainer.js';
 
-const CardsContainer = ({cards, toggleFavorites}) => {
+const CardsContainer = ({cards, toggleFavorites, showFavorites, favorites, targetFavorites}) => {
   const createCards = cards.map((card, index) => 
     <Card 
     {...card} 
@@ -12,8 +12,10 @@ const CardsContainer = ({cards, toggleFavorites}) => {
     card={card}
     />)
 
+  
+
   return (
-    <div className='CardsContainer'>
+    <div className='CardsContainer'> 
       {createCards}
     </div>
   )

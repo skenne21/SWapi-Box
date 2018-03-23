@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Nav from '../Nav/Nav.js';
 import Main from '../Main/Main.js';
 import Header from '../Header/Header.js';
+// import Favorites from '../Favorites/Favorites.js';
 import swapiData from '../../Helpers/helper.js';
 import './App.css';
 
@@ -12,7 +13,8 @@ class App extends Component {
       film: {},
       favorites: [],
       cards: [],
-      isActive: '', 
+      isActive: '',
+      targetFavorites: false, 
       error: false
     };
   }
@@ -56,13 +58,9 @@ class App extends Component {
 
   toggleFavorites = (name, card) => {
     if (this.state.favorites.includes(card)) {
-      console.log(card)
       this.removeFavorites(card);
-
     } else {
-      console.log('toggle', card)
       this.addFavorites(card);
-
     }
   }
 
@@ -79,22 +77,52 @@ class App extends Component {
     const newFavorites = [...this.state.favorites, card];
     this.setState({favorites: newFavorites});
   }
+
+  showFavorites = () => {
+    this.state.favorites.length ? 
+      this.addFavoritesToCard() : 
+      this.errorMessage()
+  } 
   
+  addFavoritesToCard = () => {
+    if(!this.state.targetFavorites) {
+      this.setState({targetFavorites: true})
+      this.setState({cards: this.state.favorites})
+    }
+  }
+
+  errorMessage = () => {
+    
+  }
+
   
 
   render() {
-    const { favorites, film, cards, isActive } = this.state; 
+    const { 
+      favorites,
+      film,
+      cards,
+      isActive,
+      targetFavorites 
+    } = this.state; 
+
     return (
       <div className="App">
         <Header 
-          favorites={favorites}/>
+          favorites={favorites}
+          showFavorites={this.showFavorites}
+        />
         <Nav
           controlFunc={this.getCards}
-          isActive={isActive}/>
+          isActive={isActive}
+        />
         <Main 
           film={film}
           cards={cards}
           toggleFavorites={this.toggleFavorites}
+          targetFavorites={targetFavorites}
+          showFavorites={this.showFavorites}
+          favorites={favorites}
         />
       </div>
     );
