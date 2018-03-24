@@ -38,6 +38,8 @@ ShallowWrapper {
                  
         </h1>
         <Button
+                card={undefined}
+                controlFunc={undefined}
                 name="❤︎"
         />
         <h4>
@@ -85,6 +87,8 @@ ShallowWrapper {
              
 </h1>,
           <Button
+            card={undefined}
+            controlFunc={undefined}
             name="❤︎"
 />,
           <h4>
@@ -147,6 +151,8 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
+            "card": undefined,
+            "controlFunc": undefined,
             "name": "❤︎",
           },
           "ref": null,
@@ -282,6 +288,8 @@ ShallowWrapper {
                      
           </h1>
           <Button
+                    card={undefined}
+                    controlFunc={undefined}
                     name="❤︎"
           />
           <h4>
@@ -329,6 +337,8 @@ ShallowWrapper {
                
 </h1>,
             <Button
+              card={undefined}
+              controlFunc={undefined}
               name="❤︎"
 />,
             <h4>
@@ -391,6 +401,8 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "function",
             "props": Object {
+              "card": undefined,
+              "controlFunc": undefined,
               "name": "❤︎",
             },
             "ref": null,
@@ -553,6 +565,8 @@ ShallowWrapper {
                  
         </h1>
         <Button
+                card={undefined}
+                controlFunc={undefined}
                 name="❤︎"
         />
         <h4>
@@ -586,6 +600,8 @@ ShallowWrapper {
              
 </h1>,
           <Button
+            card={undefined}
+            controlFunc={undefined}
             name="❤︎"
 />,
           <h4>
@@ -632,6 +648,8 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
+            "card": undefined,
+            "controlFunc": undefined,
             "name": "❤︎",
           },
           "ref": null,
@@ -715,6 +733,8 @@ ShallowWrapper {
                      
           </h1>
           <Button
+                    card={undefined}
+                    controlFunc={undefined}
                     name="❤︎"
           />
           <h4>
@@ -748,6 +768,8 @@ ShallowWrapper {
                
 </h1>,
             <Button
+              card={undefined}
+              controlFunc={undefined}
               name="❤︎"
 />,
             <h4>
@@ -794,6 +816,8 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "function",
             "props": Object {
+              "card": undefined,
+              "controlFunc": undefined,
               "name": "❤︎",
             },
             "ref": null,
@@ -904,6 +928,8 @@ ShallowWrapper {
                  
         </h1>
         <Button
+                card={undefined}
+                controlFunc={undefined}
                 name="❤︎"
         />
         <h4>
@@ -937,6 +963,8 @@ ShallowWrapper {
              
 </h1>,
           <Button
+            card={undefined}
+            controlFunc={undefined}
             name="❤︎"
 />,
           <h4>
@@ -983,6 +1011,8 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
+            "card": undefined,
+            "controlFunc": undefined,
             "name": "❤︎",
           },
           "ref": null,
@@ -1066,6 +1096,8 @@ ShallowWrapper {
                      
           </h1>
           <Button
+                    card={undefined}
+                    controlFunc={undefined}
                     name="❤︎"
           />
           <h4>
@@ -1099,6 +1131,8 @@ ShallowWrapper {
                
 </h1>,
             <Button
+              card={undefined}
+              controlFunc={undefined}
               name="❤︎"
 />,
             <h4>
@@ -1145,6 +1179,8 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "function",
             "props": Object {
+              "card": undefined,
+              "controlFunc": undefined,
               "name": "❤︎",
             },
             "ref": null,

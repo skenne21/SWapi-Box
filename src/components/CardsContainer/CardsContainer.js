@@ -5,9 +5,9 @@ import './CardsContainer.js';
 
 const CardsContainer = ({cards, toggleFavorites, showFavorites, favorites, targetFavorites}) => {
   const createCards = cards.map((card, index) => 
-    <Card 
-    {...card} 
-    key={card.name + index} 
+    <Card
+    className={card.class}  
+    key={card.class + index} 
     toggleFavorites={toggleFavorites}
     card={card}
     />)

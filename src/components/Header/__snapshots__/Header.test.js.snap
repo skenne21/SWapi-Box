@@ -25,6 +25,7 @@ ShallowWrapper {
 </h1>,
         <Favorites
           favorites={Array []}
+          showFavorites={undefined}
 />,
       ],
     },
@@ -47,6 +48,7 @@ ShallowWrapper {
         "nodeType": "function",
         "props": Object {
           "favorites": Array [],
+          "showFavorites": undefined,
         },
         "ref": null,
         "rendered": null,
@@ -67,6 +69,7 @@ ShallowWrapper {
 </h1>,
           <Favorites
             favorites={Array []}
+            showFavorites={undefined}
 />,
         ],
       },
@@ -89,6 +92,7 @@ ShallowWrapper {
           "nodeType": "function",
           "props": Object {
             "favorites": Array [],
+            "showFavorites": undefined,
           },
           "ref": null,
           "rendered": null,
