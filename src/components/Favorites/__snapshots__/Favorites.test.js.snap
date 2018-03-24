@@ -19,54 +19,28 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": Array [
+      "children": <div>
         <Button
-          name="View Favorites"
-/>,
-        <p />,
-      ],
+                controlFunc={undefined}
+                name="View Favorites"
+        />
+        <p />
+</div>,
       "className": "Favorites",
     },
     "ref": null,
-    "rendered": Array [
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "function",
-        "props": Object {
-          "name": "View Favorites",
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "host",
-        "props": Object {
-          "children": 0,
-        },
-        "ref": null,
-        "rendered": 0,
-        "type": "p",
-      },
-    ],
-    "type": "div",
-  },
-  Symbol(enzyme.__nodes__): Array [
-    Object {
+    "rendered": Object {
       "instance": null,
       "key": undefined,
       "nodeType": "host",
       "props": Object {
         "children": Array [
           <Button
+            controlFunc={undefined}
             name="View Favorites"
 />,
           <p />,
         ],
-        "className": "Favorites",
       },
       "ref": null,
       "rendered": Array [
@@ -75,6 +49,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
+            "controlFunc": undefined,
             "name": "View Favorites",
           },
           "ref": null,
@@ -93,6 +68,67 @@ ShallowWrapper {
           "type": "p",
         },
       ],
+      "type": "div",
+    },
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div>
+          <Button
+                    controlFunc={undefined}
+                    name="View Favorites"
+          />
+          <p />
+</div>,
+        "className": "Favorites",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <Button
+              controlFunc={undefined}
+              name="View Favorites"
+/>,
+            <p />,
+          ],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "function",
+            "props": Object {
+              "controlFunc": undefined,
+              "name": "View Favorites",
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": 0,
+            },
+            "ref": null,
+            "rendered": 0,
+            "type": "p",
+          },
+        ],
+        "type": "div",
+      },
       "type": "div",
     },
   ],

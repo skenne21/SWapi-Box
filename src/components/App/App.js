@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Nav from '../Nav/Nav.js';
 import Main from '../Main/Main.js';
 import Header from '../Header/Header.js';
-// import Favorites from '../Favorites/Favorites.js';
 import swapiData from '../../Helpers/helper.js';
 import './App.css';
 
@@ -23,32 +22,32 @@ class App extends Component {
     this.getMovie();
   }
 
-  getMovie = () => {
-    const randomMovie = Math.floor(Math.random() * (7 - 1)) + 1
-    swapiData.fetchMovie(randomMovie)
-      .then(apiData => {
-        const movie = swapiData.cleanMovie(apiData);
-        this.setState({film: movie});
-      })
-      .catch(error => this.setState({error: error}));
+  getMovie = async () => {
+    try {
+      const randomMovie = Math.floor(Math.random() * (7 - 1)) + 1
+      const response = await swapiData.fetchMovie(randomMovie)
+      const apiData = await swapiData.cleanMovie(response);
+      this.setState({film: apiData});
+    } catch (error) {
+      this.setState({error: error.message});
+    }
   }
 
-  getCards = (userInput, card ={}) => {
+  getCards =  async (userInput, card = {}) => {
     this.setState({isActive: userInput})
-    if (userInput === 'People') {
-      swapiData.fetchPeople()
-        .then(apiData => this.setCardsState(apiData))
-        .catch(error => this.setState({error: error}));
-    }
-    if (userInput === 'Planets') {
-      swapiData.fetchPlanets()
-        .then(apiData => this.setCardsState(apiData))
-        .catch(error => this.setState({error: error}));
-    }
-    if (userInput === 'Vehicles') {
-      swapiData.fetchVehicles()
-        .then( apiData => this.setCardsState(apiData))
-        .catch(error => this.setState({error: error}));
+    switch (userInput) {
+      case 'People':
+        const people = await swapiData.fetchPeople();
+        this.setCardsState(people);
+        break;
+      case 'Planets':
+        const planets = await swapiData.fetchPlanets();
+        this.setCardsState(planets);
+        break;
+      case 'Vehicles': 
+        const vehicles = await swapiData.fetchVehicles();
+        this.setCardsState(vehicles);
+      return;
     }  
   };
 
@@ -79,23 +78,9 @@ class App extends Component {
   }
 
   showFavorites = () => {
-    this.state.favorites.length ? 
-      this.addFavoritesToCard() : 
-      this.errorMessage()
+    this.setState({targetFavorites: true})
+    this.setState({cards: this.state.favorites})
   } 
-  
-  addFavoritesToCard = () => {
-    if(!this.state.targetFavorites) {
-      this.setState({targetFavorites: true})
-      this.setState({cards: this.state.favorites})
-    }
-  }
-
-  errorMessage = () => {
-    
-  }
-
-  
 
   render() {
     const { 

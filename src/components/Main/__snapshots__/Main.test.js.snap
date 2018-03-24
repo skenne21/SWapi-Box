@@ -138,6 +138,10 @@ ShallowWrapper {
                         },
                       ]
         }
+        favorites={undefined}
+        showFavorites={undefined}
+        targetFavorites={undefined}
+        toggleFavorites={undefined}
 />,
     },
     "ref": null,
@@ -154,6 +158,10 @@ ShallowWrapper {
             "species": "Human",
           },
         ],
+        "favorites": undefined,
+        "showFavorites": undefined,
+        "targetFavorites": undefined,
+        "toggleFavorites": undefined,
       },
       "ref": null,
       "rendered": null,
@@ -178,6 +186,10 @@ ShallowWrapper {
                               },
                             ]
           }
+          favorites={undefined}
+          showFavorites={undefined}
+          targetFavorites={undefined}
+          toggleFavorites={undefined}
 />,
       },
       "ref": null,
@@ -194,6 +206,10 @@ ShallowWrapper {
               "species": "Human",
             },
           ],
+          "favorites": undefined,
+          "showFavorites": undefined,
+          "targetFavorites": undefined,
+          "toggleFavorites": undefined,
         },
         "ref": null,
         "rendered": null,

@@ -7,7 +7,8 @@ describe('Button', () => {
 
   beforeEach(() => {
     mockControlFunc = jest.fn();
-    name='People'
+    name='People';
+    card = {}
     wrapper = shallow(
       <Button 
         name={name} 
@@ -21,6 +22,6 @@ describe('Button', () => {
 
   it('should call controlFunc when  clicked and passed with right props' , () => {
     wrapper.find('button').simulate('click')
-    expect(mockControlFunc).toHaveBeenCalledWith(name)
+    expect(mockControlFunc).toHaveBeenCalledWith(name, card)
   })
 })

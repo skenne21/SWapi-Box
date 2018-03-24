@@ -63,6 +63,22 @@ const mockSpecies = () => {
   ];
 };
 
+const mockCleanPeople = () => {
+  return[
+    {
+      name: "Luke Skywalker",
+      homeworld: 'Somewhere',
+      species: 'human',
+      population: 30000
+    }, {
+      name: "C-3P0",
+      homeworld: 'Somewhere',
+      species: 'human',
+      population: 30000
+    }
+  ]
+}
+
 const mockApiPlanets = () => {
   return [{
     climate:"temperate",
@@ -80,5 +96,6 @@ export default {
   mockApiPeople, 
   mockHomelandData, 
   mockSpecies,
-  mockApiPlanets
+  mockApiPlanets, 
+  mockCleanPeople
 };
