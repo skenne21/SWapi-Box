@@ -99,7 +99,7 @@ ShallowWrapper {
 }
 `;
 
-exports[`Main Should create a cardsContainer component if there are items in the Cards array 1`] = `
+exports[`Main Should create a cardsContainer when items in array 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],

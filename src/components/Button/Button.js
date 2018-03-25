@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './Button.css';
 
-const Button = ({name, controlFunc, isActive, card = {}}) => {
+const Button = ({className, name, controlFunc, isActive, card = {}}) => {
   const selected = () => {
     if (isActive === name) {
       return true;
@@ -15,7 +15,8 @@ const Button = ({name, controlFunc, isActive, card = {}}) => {
   return (
     <div>
       <button
-        className={selected() ? 'selected' : ''}
+        className={className}
+        id={selected() ? 'selected' : ''}
         onClick={(() => { controlFunc(name, card)}) }>{name}</button> 
     </div>
   );

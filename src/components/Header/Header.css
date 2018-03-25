@@ -1,0 +1,24 @@
+h1 {
+  position: relative;
+  color: rgb(244, 203, 66);
+  font-size: 5em;
+  width: 80%;
+  margin: 0px auto;
+}
+
+h3 {
+  position: relative;
+  width: 85%;
+  font-size: 2em;
+  color: rgb(244, 203, 66);
+  margin: 10px auto;
+  
+}
+
+.header {
+  height: 170px;
+  position: relative;
+  bottom: 4px;
+  margin: 0;
+  background-color: black;
+}

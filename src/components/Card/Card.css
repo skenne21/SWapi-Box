@@ -1,18 +1,39 @@
 .card {
+  color: #9FB7B5;
   display: inline-flex;
   flex-direction: column;
-  width: 20%;
+  width: 23%;
+  margin: 7px;
+
+  
+}
+
+.planet, 
+.people,
+.vehicle {
+  border-radius: 40px;
+  width: 100%;
+  background-color: #000000b0;
 }
 
 .planet {
-  width: 80%;
-  background-color: green;
+  height: 630px;
+}
+
+.planets .detail {
+  font-size: 15px;
 }
 
 .people {
-  background-color: magenta;
+  height: 350px;
 }
 
 .vehicle {
-  background-color: purple;
+  height: 400px;
+}
+
+.detail {
+  color: #9FB7B5;
+  margin: 25px auto;
+  font-size: 1.5em;
 }

@@ -1,22 +1,26 @@
 import React from 'react';
 import PropType from 'prop-types';
 import Button from '../Button/Button.js';
+import './Nav.css';
 
 const Nav = ({controlFunc, isActive}) => {
 
   return (
-    <div>
-      <Button 
+    <div className='Nav'>
+      <Button
+        className={'Button'} 
         name={'People'}
         controlFunc={controlFunc}
         isActive={isActive}
       />
       <Button
+        className={'Button'}
         name={'Planets'}
         controlFunc={controlFunc} 
         isActive={isActive}
       />
-      <Button 
+      <Button
+        className={'Button'} 
         name={'Vehicles'}
         controlFunc={controlFunc}
         isActive={isActive}

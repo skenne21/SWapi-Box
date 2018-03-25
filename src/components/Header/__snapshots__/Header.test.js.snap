@@ -23,11 +23,15 @@ ShallowWrapper {
         <h1>
            Welcome to SWapi-Box
 </h1>,
+        <h3>
+          Choose A Button To See Star Wars Information
+</h3>,
         <Favorites
           favorites={Array []}
           showFavorites={undefined}
 />,
       ],
+      "className": "header",
     },
     "ref": null,
     "rendered": Array [
@@ -41,6 +45,17 @@ ShallowWrapper {
         "ref": null,
         "rendered": " Welcome to SWapi-Box",
         "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Choose A Button To See Star Wars Information",
+        },
+        "ref": null,
+        "rendered": "Choose A Button To See Star Wars Information",
+        "type": "h3",
       },
       Object {
         "instance": null,
@@ -67,11 +82,15 @@ ShallowWrapper {
           <h1>
              Welcome to SWapi-Box
 </h1>,
+          <h3>
+            Choose A Button To See Star Wars Information
+</h3>,
           <Favorites
             favorites={Array []}
             showFavorites={undefined}
 />,
         ],
+        "className": "header",
       },
       "ref": null,
       "rendered": Array [
@@ -85,6 +104,17 @@ ShallowWrapper {
           "ref": null,
           "rendered": " Welcome to SWapi-Box",
           "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Choose A Button To See Star Wars Information",
+          },
+          "ref": null,
+          "rendered": "Choose A Button To See Star Wars Information",
+          "type": "h3",
         },
         Object {
           "instance": null,

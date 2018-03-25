@@ -9,7 +9,7 @@ const Card = (props) => {
   const createCards = () => {
     const keys = Object.keys(card.data);
     const cardDetails = keys.map((detail, index) => {
-      return (<h3 key={index}>{card.data[detail]}</h3>);
+      return (<h3 className='detail' key={index}>{card.data[detail]}</h3>);
     });
     return cardDetails;
   };
@@ -19,6 +19,7 @@ const Card = (props) => {
       <article className={className}>
         <h2>{card.name}</h2>
         <Button
+          className='favs-card'
           name={'❤︎'} 
           controlFunc={toggleFavorites}
           card={card}

@@ -6,10 +6,10 @@ describe('Card', () => {
   const card = {
     class: 'people',
     name: "Luke Skywalker",
-    info: {
-      species: "Human", 
-      homeWorldName: "Tatooine", 
-      population: "200000"
+    data: {
+      species: "species: Human", 
+      homeWorldName:  "homeworld: Tatooine", 
+      population: "Population: 200000"
     }    
   };
   const mockToggleFavs = jest.fn();

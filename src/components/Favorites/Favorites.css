@@ -1,0 +1,21 @@
+.Favs {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  margin: 0;
+  width: 200px;
+  background-color: #FFD700;
+  border-radius: 30px;
+}
+
+.favs-button {
+  width: 80%;
+  height: 50px;
+  margin-top: 15px;
+  font-size: 1.4em;
+}
+
+.number {
+  font-size: 2em;
+  margin: 20px;
+}

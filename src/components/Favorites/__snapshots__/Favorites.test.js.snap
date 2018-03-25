@@ -19,12 +19,17 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": <div>
+      "children": <div
+        className="Favs"
+>
         <Button
+                className="favs-button"
                 controlFunc={undefined}
                 name="View Favorites"
         />
-        <p />
+        <p
+                className="number"
+        />
 </div>,
       "className": "Favorites",
     },
@@ -36,11 +41,15 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Button
+            className="favs-button"
             controlFunc={undefined}
             name="View Favorites"
 />,
-          <p />,
+          <p
+            className="number"
+/>,
         ],
+        "className": "Favs",
       },
       "ref": null,
       "rendered": Array [
@@ -49,6 +58,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
+            "className": "favs-button",
             "controlFunc": undefined,
             "name": "View Favorites",
           },
@@ -62,6 +72,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": 0,
+            "className": "number",
           },
           "ref": null,
           "rendered": 0,
@@ -78,12 +89,17 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": <div>
+        "children": <div
+          className="Favs"
+>
           <Button
+                    className="favs-button"
                     controlFunc={undefined}
                     name="View Favorites"
           />
-          <p />
+          <p
+                    className="number"
+          />
 </div>,
         "className": "Favorites",
       },
@@ -95,11 +111,15 @@ ShallowWrapper {
         "props": Object {
           "children": Array [
             <Button
+              className="favs-button"
               controlFunc={undefined}
               name="View Favorites"
 />,
-            <p />,
+            <p
+              className="number"
+/>,
           ],
+          "className": "Favs",
         },
         "ref": null,
         "rendered": Array [
@@ -108,6 +128,7 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "function",
             "props": Object {
+              "className": "favs-button",
               "controlFunc": undefined,
               "name": "View Favorites",
             },
@@ -121,6 +142,7 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": 0,
+              "className": "number",
             },
             "ref": null,
             "rendered": 0,

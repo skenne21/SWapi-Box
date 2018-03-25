@@ -1,22 +1,20 @@
 .ScrollText {
   margin: auto;
-  background-image: url('../../assets/text-background.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 60%;
+  width: 80%;
   height: 100%;
   overflow: hidden;
+
 }
 
 .main-container__text {
   display: flex;
   justify-content: center;
-  height: 400px;
-  perspective: 400px;
+  height: 300px;
+  perspective: 300px;
   font-size: 500%;
   line-height: 150%;
   letter-spacing: 6px;
-  color: yellow;
+  color: #FFD700;
   text-align: justify;
   margin: auto;
 }
@@ -33,7 +31,7 @@
   width: 100%;
   min-height: 60vh;
   top: -25px;
-  background-image: linear-gradient(0deg, transparent, black 75%);
+  background-image: linear-gradient(1deg, transparent, black 90%);
   z-index: 1;
 }
 

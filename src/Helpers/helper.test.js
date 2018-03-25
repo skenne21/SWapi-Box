@@ -83,70 +83,57 @@ describe('People', () => {
       ok: true,
       json: () => Promise.resolve(response)
     }));
-
-  })
+  });
 
   it('Should call fetch with the right url for fetchPeople', ()=> {
-
     const url = 'https://swapi.co/api/people';
-
     helper.fetchPeople();
     expect(window.fetch).toHaveBeenCalledWith(url);
-  })
+  });
 
   it('Should return a clean Person object', async ()=> {
-    
-    const expected  = [{
+    const expected = [{
       "class": "people",
-       "data": {
-          "homeworld": undefined,
-          "population": undefined,
-          "species": undefined
-        }, 
-      "name": "Luke Skywalker"
-    }]
-    const people = await helper.fetchPeople()
-    expect(people).toEqual(expected)
-  })
+      "data": {
+        "homeworld": "Homeworld: undefined",
+        "population": "Population undefined",
+        "species": undefined
+      }, 
+      "name": "Name: Luke Skywalker"
+    }];
+    const people = await helper.fetchPeople();
+    expect(people).toEqual(expected);
+  });
 
   it('should fetch homeworld with the right params', () => {
-
     const url = "https://swapi.co/api/planets/1/";
-
     helper.fetchHomeWorlds(url);
     expect(window.fetch).toHaveBeenCalledWith(url);
-
   });
 
   it('Should return a homeworld object', async () =>{
     const url = "https://swapi.co/api/planets/1/";
-    
-
     const expected = {
-     "homeworld": undefined,
-     "population": undefined
-    }
-
+      "homeworld": "Homeworld: undefined",
+      "population": "Population undefined"
+    };
     const world = await helper.fetchHomeWorlds(url);
-    
-    expect(world).toEqual(expected)
-  })
+    expect(world).toEqual(expected);
+  });
 
   it('Should call fetchSpecies with the right url', () => {
     const url = "https://swapi.co/api/species/1/";
-
     helper.fetchSpecies(url);
     expect(window.fetch).toHaveBeenCalledWith(url);
-  })
+  });
 
   it('Should return a species' ,async() => { 
     const expected = undefined;
     const url = "https://swapi.co/api/species/1/";
     const species =  await helper.fetchSpecies(url);
-    expect(species).toEqual(expected) 
-  })
-  
-})
+    expect(species).toEqual(expected); 
+  });
+});
 
 describe('Planets', () =>{
   let response;
@@ -164,35 +151,35 @@ describe('Planets', () =>{
           "https://swapi.co/api/people/68/", 
           "https://swapi.co/api/people/81/"
         ]
-    }]}
+    }]};
 
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       ok: true,
       json: () => Promise.resolve(response)
     }));
-  })
+  });
 
   it('Should fetch a plant with the right url', () => {
     const url = 'https://swapi.co/api/planets'
     helper.fetchPlanets();
-    expect(window.fetch).toHaveBeenCalledWith(url)
-  })
+    expect(window.fetch).toHaveBeenCalledWith(url);
+  });
 
   it('Shoule return a planet object', async () => {
     const expected = [{
       "class": "planet",
-       "data": {
-          "climate": "temperate",
-          "population": "200000",
-          "residents": ", , ",
-          "terrain": "grasslands, mountains"
-        }, 
-        "name": "Alderaan"
-      }]
+      "data": {
+        "climate": "Climate: temperate",
+        "population": "Population: 200000",
+        "residents": ", , ",
+        "terrain": "Terrain: grasslands, mountains"
+      }, 
+      "name": "Name: Alderaan"
+    }];
+
     const planets = await helper.fetchPlanets();
     expect(planets).toEqual(expected);
-
-  })
+  });
 
   it('Should fetch residents with the right url', async () =>{
     const url = 'https://swapi.co/api/people/1/' ;
@@ -247,18 +234,18 @@ describe('vechicles', () => {
       passengers: '30',
       vehicle_class: 'wheeled' }]
     }
-    const expected = [{
-      "class": "vehicle", 
-      "data": {
-        "model": "Digger Crawler",
-         "passengers": "30", 
-         "vehicleClass": "wheeled"
-       }, "name": "Sand Crawler"
-     }]
 
+    const expected = [{
+      "class": "vehicle",
+      "data": {
+        "model": "Model: Digger Crawler",
+        "passengers": "Passengers: 30",
+        "vehicleClass": "Vehicle Class: wheeled"
+      }, "name": "Name: Sand Crawler"
+    }];
     const vehicle = await helper.cleanVehicles(response);
-    expect(vehicle).toEqual(expected)
-  })
-})
+    expect(vehicle).toEqual(expected);
+  });
+});
 
 
