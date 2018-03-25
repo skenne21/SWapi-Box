@@ -8,7 +8,7 @@ describe('Button', () => {
   beforeEach(() => {
     mockControlFunc = jest.fn();
     name='People';
-    card = {}
+    card = {};
     wrapper = shallow(
       <Button 
         name={name} 
@@ -16,14 +16,14 @@ describe('Button', () => {
         isActive={''}
         card={card}
       />);
-  })
+  });
 
   it('Should match the snapShot', () => {
     expect(wrapper).toMatchSnapshot();
-  })
+  });
 
-  it('should call controlFunc when  clicked and passed with right props' , () => {
-    wrapper.find('button').simulate('click')
-    expect(mockControlFunc).toHaveBeenCalledWith(name, card)
-  })
-})
+  it('should call controlFunc when clicked', () => {
+    wrapper.find('button').simulate('click');
+    expect(mockControlFunc).toHaveBeenCalledWith(name, card);
+  });
+});

@@ -24,8 +24,8 @@ class App extends Component {
 
   getMovie = async () => {
     try {
-      const randomMovie = Math.floor(Math.random() * (7 - 1)) + 1
-      const response = await swapiData.fetchMovie(randomMovie)
+      const randomMovie = Math.floor(Math.random() * (7 - 1)) + 1;
+      const response = await swapiData.fetchMovie(randomMovie);
       const apiData = await swapiData.cleanMovie(response);
       this.setState({film: apiData});
     } catch (error) {
@@ -33,20 +33,20 @@ class App extends Component {
     }
   }
 
-  getCards =  async (userInput, card = {}) => {
-    this.setState({isActive: userInput})
+  getCards =  async (userInput, ...args) => {
+    this.setState({isActive: userInput});
     switch (userInput) {
-      case 'People':
-        const people = await swapiData.fetchPeople();
-        this.setCardsState(people);
-        break;
-      case 'Planets':
-        const planets = await swapiData.fetchPlanets();
-        this.setCardsState(planets);
-        break;
-      case 'Vehicles': 
-        const vehicles = await swapiData.fetchVehicles();
-        this.setCardsState(vehicles);
+    case 'People':
+      const people = await swapiData.fetchPeople();
+      this.setCardsState(people);
+      break;
+    case 'Planets':
+      const planets = await swapiData.fetchPlanets();
+      this.setCardsState(planets);
+      break;
+    case 'Vehicles': 
+      const vehicles = await swapiData.fetchVehicles();
+      this.setCardsState(vehicles);
       return;
     }  
   };
@@ -66,8 +66,8 @@ class App extends Component {
   removeFavorites = (card) => {
     card.id = undefined;
     const filterFavs = this.state.favorites.filter( favs => {
-      return favs.id !== card.id
-    })
+      return favs.id !== card.id;
+    });
     this.setState({favorites: filterFavs});
   }
 
@@ -78,8 +78,8 @@ class App extends Component {
   }
 
   showFavorites = () => {
-    this.setState({targetFavorites: true})
-    this.setState({cards: this.state.favorites})
+    this.setState({targetFavorites: true});
+    this.setState({cards: this.state.favorites});
   } 
 
   render() {

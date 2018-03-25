@@ -9,9 +9,9 @@ ShallowWrapper {
         Object {
             "class": "people",
             "data": Object {
-              "homeWorldName": "Tatooine",
-              "population": "200000",
-              "species": "Human",
+              "homeWorldName": "homeworld: Tatooine",
+              "population": "Population: 200000",
+              "species": "species: Human",
             },
             "name": "Luke Skywalker",
           }
@@ -42,24 +42,31 @@ ShallowWrapper {
                         Object {
                                 "class": "people",
                                 "data": Object {
-                                  "homeWorldName": "Tatooine",
-                                  "population": "200000",
-                                  "species": "Human",
+                                  "homeWorldName": "homeworld: Tatooine",
+                                  "population": "Population: 200000",
+                                  "species": "species: Human",
                                 },
                                 "name": "Luke Skywalker",
                               }
                 }
+                className="favs-card"
                 controlFunc={[Function]}
                 name="❤︎"
         />
-        <h3>
-                Human
+        <h3
+                className="detail"
+        >
+                species: Human
         </h3>
-        <h3>
-                Tatooine
+        <h3
+                className="detail"
+        >
+                homeworld: Tatooine
         </h3>
-        <h3>
-                200000
+        <h3
+                className="detail"
+        >
+                Population: 200000
         </h3>
 </article>,
       "className": "card",
@@ -79,25 +86,32 @@ ShallowWrapper {
                         Object {
                                     "class": "people",
                                     "data": Object {
-                                      "homeWorldName": "Tatooine",
-                                      "population": "200000",
-                                      "species": "Human",
+                                      "homeWorldName": "homeworld: Tatooine",
+                                      "population": "Population: 200000",
+                                      "species": "species: Human",
                                     },
                                     "name": "Luke Skywalker",
                                   }
             }
+            className="favs-card"
             controlFunc={[Function]}
             name="❤︎"
 />,
           Array [
-            <h3>
-              Human
+            <h3
+              className="detail"
+>
+              species: Human
 </h3>,
-            <h3>
-              Tatooine
+            <h3
+              className="detail"
+>
+              homeworld: Tatooine
 </h3>,
-            <h3>
-              200000
+            <h3
+              className="detail"
+>
+              Population: 200000
 </h3>,
           ],
         ],
@@ -124,12 +138,13 @@ ShallowWrapper {
             "card": Object {
               "class": "people",
               "data": Object {
-                "homeWorldName": "Tatooine",
-                "population": "200000",
-                "species": "Human",
+                "homeWorldName": "homeworld: Tatooine",
+                "population": "Population: 200000",
+                "species": "species: Human",
               },
               "name": "Luke Skywalker",
             },
+            "className": "favs-card",
             "controlFunc": [Function],
             "name": "❤︎",
           },
@@ -142,10 +157,11 @@ ShallowWrapper {
           "key": "0",
           "nodeType": "host",
           "props": Object {
-            "children": "Human",
+            "children": "species: Human",
+            "className": "detail",
           },
           "ref": null,
-          "rendered": "Human",
+          "rendered": "species: Human",
           "type": "h3",
         },
         Object {
@@ -153,10 +169,11 @@ ShallowWrapper {
           "key": "1",
           "nodeType": "host",
           "props": Object {
-            "children": "Tatooine",
+            "children": "homeworld: Tatooine",
+            "className": "detail",
           },
           "ref": null,
-          "rendered": "Tatooine",
+          "rendered": "homeworld: Tatooine",
           "type": "h3",
         },
         Object {
@@ -164,10 +181,11 @@ ShallowWrapper {
           "key": "2",
           "nodeType": "host",
           "props": Object {
-            "children": "200000",
+            "children": "Population: 200000",
+            "className": "detail",
           },
           "ref": null,
-          "rendered": "200000",
+          "rendered": "Population: 200000",
           "type": "h3",
         },
       ],
@@ -192,24 +210,31 @@ ShallowWrapper {
                               Object {
                                         "class": "people",
                                         "data": Object {
-                                          "homeWorldName": "Tatooine",
-                                          "population": "200000",
-                                          "species": "Human",
+                                          "homeWorldName": "homeworld: Tatooine",
+                                          "population": "Population: 200000",
+                                          "species": "species: Human",
                                         },
                                         "name": "Luke Skywalker",
                                       }
                     }
+                    className="favs-card"
                     controlFunc={[Function]}
                     name="❤︎"
           />
-          <h3>
-                    Human
+          <h3
+                    className="detail"
+          >
+                    species: Human
           </h3>
-          <h3>
-                    Tatooine
+          <h3
+                    className="detail"
+          >
+                    homeworld: Tatooine
           </h3>
-          <h3>
-                    200000
+          <h3
+                    className="detail"
+          >
+                    Population: 200000
           </h3>
 </article>,
         "className": "card",
@@ -229,25 +254,32 @@ ShallowWrapper {
                             Object {
                                           "class": "people",
                                           "data": Object {
-                                            "homeWorldName": "Tatooine",
-                                            "population": "200000",
-                                            "species": "Human",
+                                            "homeWorldName": "homeworld: Tatooine",
+                                            "population": "Population: 200000",
+                                            "species": "species: Human",
                                           },
                                           "name": "Luke Skywalker",
                                         }
               }
+              className="favs-card"
               controlFunc={[Function]}
               name="❤︎"
 />,
             Array [
-              <h3>
-                Human
+              <h3
+                className="detail"
+>
+                species: Human
 </h3>,
-              <h3>
-                Tatooine
+              <h3
+                className="detail"
+>
+                homeworld: Tatooine
 </h3>,
-              <h3>
-                200000
+              <h3
+                className="detail"
+>
+                Population: 200000
 </h3>,
             ],
           ],
@@ -274,12 +306,13 @@ ShallowWrapper {
               "card": Object {
                 "class": "people",
                 "data": Object {
-                  "homeWorldName": "Tatooine",
-                  "population": "200000",
-                  "species": "Human",
+                  "homeWorldName": "homeworld: Tatooine",
+                  "population": "Population: 200000",
+                  "species": "species: Human",
                 },
                 "name": "Luke Skywalker",
               },
+              "className": "favs-card",
               "controlFunc": [Function],
               "name": "❤︎",
             },
@@ -292,10 +325,11 @@ ShallowWrapper {
             "key": "0",
             "nodeType": "host",
             "props": Object {
-              "children": "Human",
+              "children": "species: Human",
+              "className": "detail",
             },
             "ref": null,
-            "rendered": "Human",
+            "rendered": "species: Human",
             "type": "h3",
           },
           Object {
@@ -303,10 +337,11 @@ ShallowWrapper {
             "key": "1",
             "nodeType": "host",
             "props": Object {
-              "children": "Tatooine",
+              "children": "homeworld: Tatooine",
+              "className": "detail",
             },
             "ref": null,
-            "rendered": "Tatooine",
+            "rendered": "homeworld: Tatooine",
             "type": "h3",
           },
           Object {
@@ -314,10 +349,11 @@ ShallowWrapper {
             "key": "2",
             "nodeType": "host",
             "props": Object {
-              "children": "200000",
+              "children": "Population: 200000",
+              "className": "detail",
             },
             "ref": null,
-            "rendered": "200000",
+            "rendered": "Population: 200000",
             "type": "h3",
           },
         ],

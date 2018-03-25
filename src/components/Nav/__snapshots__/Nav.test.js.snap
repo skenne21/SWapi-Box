@@ -19,21 +19,25 @@ ShallowWrapper {
     "props": Object {
       "children": Array [
         <Button
+          className="Button"
           controlFunc={undefined}
           isActive={undefined}
           name="People"
 />,
         <Button
+          className="Button"
           controlFunc={undefined}
           isActive={undefined}
           name="Planets"
 />,
         <Button
+          className="Button"
           controlFunc={undefined}
           isActive={undefined}
           name="Vehicles"
 />,
       ],
+      "className": "Nav",
     },
     "ref": null,
     "rendered": Array [
@@ -42,6 +46,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
+          "className": "Button",
           "controlFunc": undefined,
           "isActive": undefined,
           "name": "People",
@@ -55,6 +60,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
+          "className": "Button",
           "controlFunc": undefined,
           "isActive": undefined,
           "name": "Planets",
@@ -68,6 +74,7 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "function",
         "props": Object {
+          "className": "Button",
           "controlFunc": undefined,
           "isActive": undefined,
           "name": "Vehicles",
@@ -87,21 +94,25 @@ ShallowWrapper {
       "props": Object {
         "children": Array [
           <Button
+            className="Button"
             controlFunc={undefined}
             isActive={undefined}
             name="People"
 />,
           <Button
+            className="Button"
             controlFunc={undefined}
             isActive={undefined}
             name="Planets"
 />,
           <Button
+            className="Button"
             controlFunc={undefined}
             isActive={undefined}
             name="Vehicles"
 />,
         ],
+        "className": "Nav",
       },
       "ref": null,
       "rendered": Array [
@@ -110,6 +121,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
+            "className": "Button",
             "controlFunc": undefined,
             "isActive": undefined,
             "name": "People",
@@ -123,6 +135,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
+            "className": "Button",
             "controlFunc": undefined,
             "isActive": undefined,
             "name": "Planets",
@@ -136,6 +149,7 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "function",
           "props": Object {
+            "className": "Button",
             "controlFunc": undefined,
             "isActive": undefined,
             "name": "Vehicles",

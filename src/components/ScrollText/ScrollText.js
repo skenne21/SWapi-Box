@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './ScrollText.css'
+import './ScrollText.css';
 
 const ScrollText = ({film}) => {
   const { title, opening, release} = film;
@@ -17,12 +17,11 @@ const ScrollText = ({film}) => {
         </div>
       </div>
     </section>
-
-  )
-}
+  );
+};
 
 export default ScrollText;
 
 ScrollText.propTypes = {
   film:PropTypes.object.isRequired
-}
+};

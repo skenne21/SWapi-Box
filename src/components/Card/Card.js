@@ -7,18 +7,19 @@ const Card = (props) => {
   const { card, className, toggleFavorites} = props;
 
   const createCards = () => {
-    const keys = Object.keys(card.data)
-    const cardDetails = keys.map((detail,index) => {
-      return (<h3 key={index}>{card.data[detail]}</h3>)
-    })
+    const keys = Object.keys(card.data);
+    const cardDetails = keys.map((detail, index) => {
+      return (<h3 className='detail' key={index}>{card.data[detail]}</h3>);
+    });
     return cardDetails;
-  }
+  };
 
   return (
     <div className='card'>
       <article className={className}>
         <h2>{card.name}</h2>
         <Button
+          className='favs-card'
           name={'❤︎'} 
           controlFunc={toggleFavorites}
           card={card}
@@ -26,12 +27,13 @@ const Card = (props) => {
         {createCards(props)}
       </article>
     </div>
-  )
-}
+  );
+};
 
 Card.propTypes = {
   className: PropTypes.string,
   toggleFavorites: PropTypes.func,
   card: PropTypes.object 
-}
+};
+
 export default Card;

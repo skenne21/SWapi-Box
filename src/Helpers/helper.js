@@ -38,7 +38,7 @@ const fetchPeople = async () => {
     const info = Object.assign({},homeworld, {species})
     return ({
       class:'people',
-      name: name,
+      name: `Name: ${name}`,
       data: info
     });
   }) 
@@ -48,8 +48,8 @@ const fetchPeople = async () => {
 const fetchHomeWorlds =  async (homeworld) => {
   const apiData = await fetchApiData(homeworld);
   return {
-    homeworld:apiData.name,
-    population: apiData.population
+    homeworld:`Homeworld: ${apiData.name}`,
+    population: `Population ${apiData.population}`
   }
 }
 
@@ -64,11 +64,11 @@ const fetchPlanets = async () => {
     const residentsList = await fetchResidents(planet.residents)
     return ({
       class: 'planet',
-      name: planet.name,
+      name: `Name: ${planet.name}`,
       data: {
-        terrain: planet.terrain,
-        population: planet.population,
-        climate: planet.climate,
+        terrain: `Terrain: ${planet.terrain}`,
+        population: `Population: ${planet.population}`,
+        climate: `Climate: ${planet.climate}`,
         residents: residentsList.length ? 
           residentsList.join(', ') : 'none'
       }
@@ -94,11 +94,11 @@ const fetchVehicles = async () => {
 const cleanVehicles = async (vehicleData) => {
   const vehicles = vehicleData.results.map( async vehicle => ({
     class: 'vehicle',
-    name: vehicle.name,
+    name: `Name: ${vehicle.name}`,
     data: {
-      model: vehicle.model,
-      passengers: vehicle.passengers,
-      vehicleClass: vehicle.vehicle_class
+      model: `Model: ${vehicle.model}`,
+      passengers: `Passengers: ${vehicle.passengers}`,
+      vehicleClass: `Vehicle Class: ${vehicle.vehicle_class}`
     }
   }))
   return Promise.all(vehicles)
