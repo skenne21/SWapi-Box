@@ -5,16 +5,15 @@ import './Card.css';
 
 const Card = (props) => {
   const { card, className, toggleFavorites} = props;
-  console.log(className)
+
   const createCards = () => {
     const keys = Object.keys(card.data)
     const cardDetails = keys.map((detail,index) => {
       return (<h3 key={index}>{card.data[detail]}</h3>)
     })
-
     return cardDetails;
   }
-  
+
   return (
     <div className='card'>
       <article className={className}>
@@ -31,7 +30,7 @@ const Card = (props) => {
 }
 
 Card.propTypes = {
-  
+  className: PropTypes.string,
   toggleFavorites: PropTypes.func,
   card: PropTypes.object 
 }

@@ -10,7 +10,7 @@ describe('App shallow' , () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<App/>)
+    wrapper = shallow (<App/>)
 
   })
 
@@ -44,27 +44,20 @@ describe('App shallow' , () => {
     expect(wrapper.state('targetFavorites')).toEqual(false)
   })
 
-  // it('Should call fetchMovie when getMovie is called', () => {
-  //   const expected = {
-  //     title: 'The Empire Strikes Back',
-  //     opening: 'It is a dark time for the...',
-  //     release: '1980'
-  //   };
-  //   expect(wrapper.state('film')).toEqual({})
-  //   wrapper.instance().getMovie()
-  //   wrapper.update();
-  //   wrapper.update();
-  //   expect(wrapper.state('film')).toEqual(expected)
-    
-  // })
+  it('Should add a film object to state when getMovie is called', async() => {
+    expect(wrapper.state('film')).toEqual({})
+    await wrapper.instance().getMovie()
+    expect(wrapper.state('film').title).toBeDefined()
+  })
 
-  // it('Should ser the state of isActive to the user Input', () => {
-  //   expect(wrapper.state('isActive')).toEqual('');
-  //   wrapper.instance().getCards('People')
-  //   expect(wrapper.state('isActive')).toEqual('People');
-  //   wrapper.instance().getCards('Vehicles');
-  //   expect(wrapper.state('isActive')).toEqual('Vehicles')
-  // })
+  it('Should set the state of isActive to the user Input', () => {
+    const card = {}
+    expect(wrapper.state('isActive')).toEqual('');
+    wrapper.instance().getCards('People', card)
+    expect(wrapper.state('isActive')).toEqual('People');
+    wrapper.instance().getCards('Vehicles', card);
+    expect(wrapper.state('isActive')).toEqual('Vehicles')
+  })
 
   it('Should return a people object if the userInput was people in the getCards function', async () => {
     const cleanPeople = [{

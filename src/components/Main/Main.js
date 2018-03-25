@@ -6,7 +6,6 @@ import './Main.css';
 
 const Main = ({film, cards, toggleFavorites, targetFavorites, favorites, showFavorites}) => {
 
-
   return (
     <main> 
     {
@@ -29,7 +28,10 @@ const Main = ({film, cards, toggleFavorites, targetFavorites, favorites, showFav
 Main.propTypes = {
   film: PropTypes.object,
   cards: PropTypes.array.isRequired,
-  toggleFavorites: PropTypes.func.isRequired,
+  toggleFavorites: PropTypes.func,  
+  targetFavorites: PropTypes.bool,
+  favorites: PropTypes.array,
+  showFavorites: PropTypes.func
 }
 
 export default Main;

@@ -16,7 +16,8 @@ const Header = ({favorites, showFavorites}) => {
 }
 
 Header.propTypes = {
-  favorites: PropTypes.array.isRequired
+  favorites: PropTypes.array.isRequired,
+  showFavorites: PropTypes.func
 }
 
 export default Header;

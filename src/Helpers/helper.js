@@ -6,7 +6,7 @@ const fetchApiData = async (url) => {
     const apiData = await response.json();
     return apiData;
   } catch (error) {
-    throw (new Error(error.message))
+    throw new Error('Failed to fetch data')
   }
 }
 
@@ -32,7 +32,8 @@ const fetchPeople = async () => {
   const apiData = await fetchApiData(`${apiRoot}people`);
   const peoplePromises = apiData.results.map( async person => {
     const name = person.name;
-    const homeworld = await fetchHomeWorlds(person.homeworld)
+    const homeworld = await 
+      fetchHomeWorlds(person.homeworld)
     const species = await fetchSpecies(person.species)
     const info = Object.assign({},homeworld, {species})
     return ({
@@ -61,7 +62,6 @@ const fetchPlanets = async () => {
   const apiData = await fetchApiData(`${apiRoot}planets`);
   const planetPromise = apiData.results.map( async planet => {
     const residentsList = await fetchResidents(planet.residents)
-    console.log(residentsList)
     return ({
       class: 'planet',
       name: planet.name,
@@ -69,7 +69,8 @@ const fetchPlanets = async () => {
         terrain: planet.terrain,
         population: planet.population,
         climate: planet.climate,
-        residents: residentsList.length ? residentsList.join(', ') : 'none'
+        residents: residentsList.length ? 
+          residentsList.join(', ') : 'none'
       }
     })
   })
@@ -105,11 +106,14 @@ const cleanVehicles = async (vehicleData) => {
 
 export default {
   cleanMovie,
-  cleanYear, 
+  cleanYear,
+  cleanVehicles, 
   fetchMovie, 
   fetchPeople, 
   fetchPlanets, 
   fetchVehicles,
   fetchHomeWorlds,
-  fetchSpecies
+  fetchSpecies, 
+  fetchApiData,
+  fetchResidents
 };

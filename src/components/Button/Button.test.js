@@ -3,7 +3,7 @@ import { shallow } from 'enzyme';
 import Button from './Button.js';
 
 describe('Button', () => {
-  let wrapper, mockControlFunc, name;
+  let wrapper, mockControlFunc, name, card;
 
   beforeEach(() => {
     mockControlFunc = jest.fn();
@@ -13,6 +13,8 @@ describe('Button', () => {
       <Button 
         name={name} 
         controlFunc={mockControlFunc}
+        isActive={''}
+        card={card}
       />);
   })
 

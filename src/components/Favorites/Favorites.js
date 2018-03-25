@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Button from '../Button/Button.js';
-// import Card from '../Card/Card.js';
+
 
 const Favorites = ({favorites, showFavorites}) => {
   const navButton = () => {
@@ -26,7 +26,8 @@ const Favorites = ({favorites, showFavorites}) => {
 }
 
 Favorites.propTypes = {
-  favorites: PropTypes.array
+  favorites: PropTypes.array,
+  showFavorites: PropTypes.func
 }
 
 export default Favorites;
