@@ -27,9 +27,10 @@ ShallowWrapper {
                 controlFunc={undefined}
                 name="View Favorites"
         />
-        <p
-                className="number"
-        />
+        <p>
+                 No Favorites Saved: 
+                0
+        </p>
 </div>,
       "className": "Favorites",
     },
@@ -45,9 +46,10 @@ ShallowWrapper {
             controlFunc={undefined}
             name="View Favorites"
 />,
-          <p
-            className="number"
-/>,
+          <p>
+             No Favorites Saved: 
+            0
+</p>,
         ],
         "className": "Favs",
       },
@@ -71,11 +73,16 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": 0,
-            "className": "number",
+            "children": Array [
+              " No Favorites Saved: ",
+              0,
+            ],
           },
           "ref": null,
-          "rendered": 0,
+          "rendered": Array [
+            " No Favorites Saved: ",
+            0,
+          ],
           "type": "p",
         },
       ],
@@ -97,9 +104,10 @@ ShallowWrapper {
                     controlFunc={undefined}
                     name="View Favorites"
           />
-          <p
-                    className="number"
-          />
+          <p>
+                     No Favorites Saved: 
+                    0
+          </p>
 </div>,
         "className": "Favorites",
       },
@@ -115,9 +123,10 @@ ShallowWrapper {
               controlFunc={undefined}
               name="View Favorites"
 />,
-            <p
-              className="number"
-/>,
+            <p>
+               No Favorites Saved: 
+              0
+</p>,
           ],
           "className": "Favs",
         },
@@ -141,11 +150,16 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": 0,
-              "className": "number",
+              "children": Array [
+                " No Favorites Saved: ",
+                0,
+              ],
             },
             "ref": null,
-            "rendered": 0,
+            "rendered": Array [
+              " No Favorites Saved: ",
+              0,
+            ],
             "type": "p",
           },
         ],
