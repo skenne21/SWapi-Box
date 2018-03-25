@@ -4,7 +4,7 @@ import Nav from './Nav.js';
 
 describe('Nav', () => {
   it('Should match the snapshot', () => {
-    const wrapper = shallow(<Nav/>)
+    const wrapper = shallow(<Nav/>);
     expect(wrapper).toMatchSnapshot();
-  })
-})
+  });
+});

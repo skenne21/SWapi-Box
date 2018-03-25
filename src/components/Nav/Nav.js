@@ -4,7 +4,7 @@ import Button from '../Button/Button.js';
 
 const Nav = ({controlFunc, isActive}) => {
 
-  return(
+  return (
     <div>
       <Button 
         name={'People'}
@@ -22,13 +22,12 @@ const Nav = ({controlFunc, isActive}) => {
         isActive={isActive}
       />
     </div>
-  )
+  );
+};
 
-}
-
-Nav.PropType = {
-  controlFunc: PropType.func.isRequired,
+Nav.propTypes = {
+  controlFunc: PropType.func,
   isActive: PropType.string
-}
+};
 
 export default Nav;

@@ -11,14 +11,13 @@ const Header = ({favorites, showFavorites}) => {
         showFavorites={showFavorites}
       />
     </header>
-
-  )
-}
+  );
+};
 
 Header.propTypes = {
   favorites: PropTypes.array.isRequired,
   showFavorites: PropTypes.func
-}
+};
 
 export default Header;
 

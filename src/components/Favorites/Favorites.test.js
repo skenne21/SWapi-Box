@@ -6,5 +6,5 @@ describe('Favorites', () => {
   it('Should match the snapshot', () => {
     const wrapper = shallow(<Favorites favorites={[]}/>);
     expect(wrapper).toMatchSnapshot();
-  })
-})
+  });
+});

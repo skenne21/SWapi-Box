@@ -8,26 +8,26 @@ describe('Main', () => {
       title: 'Attack of the clones',
       opening: 'It is a dark time for...',
       year: '2002'
-    }
+    };
     const wrapper = shallow(
       <Main 
         film={film}
         cards={[]} 
-      />)
+      />);
     expect(wrapper).toMatchSnapshot();
-  })
+  });
 
-  it('Should create a cardsContainer component if there are items in the Cards array',() => {
+  it('Should create a cardsContainer when items in array', () => {
     const cards= [{
       homeWorldName:"Tatooine",
       name:"Luke Skywalker",
       population:"200000",
-      species:"Human",
-    }]
+      species:"Human"
+    }];
     const wrapper = shallow(
       <Main 
         cards={cards} 
-      />)
-    expect(wrapper).toMatchSnapshot()
-  })
-})
+      />);
+    expect(wrapper).toMatchSnapshot();
+  });
+});

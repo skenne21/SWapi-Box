@@ -4,26 +4,33 @@ import ScrollText from '../ScrollText/ScrollText.js';
 import CardsContainer from '../CardsContainer/CardsContainer.js';
 import './Main.css';
 
-const Main = ({film, cards, toggleFavorites, targetFavorites, favorites, showFavorites}) => {
+const Main = (props) => {
+  const { 
+    film,
+    cards,
+    toggleFavorites,
+    targetFavorites,
+    favorites,
+    showFavorites
+  } = props;
 
   return (
     <main> 
-    {
-      cards.length ? 
-      <CardsContainer 
-        cards={cards}
-        toggleFavorites={toggleFavorites}
-        showFavorites={showFavorites}
-        favorites={favorites}
-        targetFavorites={targetFavorites}
-      />
-      :
-      <ScrollText film={film} />
-    }
-    </main>
-  
-  )
-}
+      {
+        cards.length ? 
+          <CardsContainer 
+            cards={cards}
+            toggleFavorites={toggleFavorites}
+            showFavorites={showFavorites}
+            favorites={favorites}
+            targetFavorites={targetFavorites}
+          />
+          :
+          <ScrollText film={film} />
+      }
+    </main> 
+  );
+};
 
 Main.propTypes = {
   film: PropTypes.object,
@@ -32,7 +39,7 @@ Main.propTypes = {
   targetFavorites: PropTypes.bool,
   favorites: PropTypes.array,
   showFavorites: PropTypes.func
-}
+};
 
 export default Main;
 

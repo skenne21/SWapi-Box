@@ -6,5 +6,5 @@ describe('Header', () => {
   it('Should match the snapshot', () => {
     const wrapper = shallow(<Header favorites={[]}/>);
     expect(wrapper).toMatchSnapshot();
-  })
-})
+  });
+});
