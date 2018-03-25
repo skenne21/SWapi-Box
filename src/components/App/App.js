@@ -47,7 +47,10 @@ class App extends Component {
     case 'Vehicles': 
       const vehicles = await swapiData.fetchVehicles();
       this.setCardsState(vehicles);
-      return;
+      break;
+    default : 
+      console.log('error')
+      break
     }  
   };
 

@@ -4,20 +4,16 @@ import {shallow} from 'enzyme';
 import App from './App';
 import mockData from '../../Helpers/mockData.js';
 
-
-
-describe('App shallow', () => {
+describe("App shallow", () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<App/>);
+    wrapper = shallow(<App />, {disableLifecycleMethods: true});
   });
 
-  it('renders without crashing', () => {
-    const div = document.createElement('div');
-    ReactDOM.render(<App />);
-    ReactDOM.unmountComponentAtNode(div);
-  });
+  it("Should match the snapShot" , () => {
+    expect(wrapper).toMatchSnapshot()
+  })
 
   it('Should a default state empty object for films', () => {
     expect(wrapper.state('film')).toEqual({});
@@ -43,67 +39,13 @@ describe('App shallow', () => {
     expect(wrapper.state('targetFavorites')).toEqual(false);
   });
 
-  it('Should add a film object to state when getMovie is called', async() => {
-    expect(wrapper.state('film')).toEqual({});
-    await wrapper.instance().getMovie();
-    expect(wrapper.state('film').title).toBeDefined();
-  });
-
-  it('Should set the state of isActive to the user Input', () => {
-    const card = {};
+  it('Should set the sate of isActive with the user input', async ()  => {
     expect(wrapper.state('isActive')).toEqual('');
-    wrapper.instance().getCards('People', card);
+    const getCards =await wrapper.instance().getCards('People', {});
     expect(wrapper.state('isActive')).toEqual('People');
-    wrapper.instance().getCards('Vehicles', card);
+    const getCardsAgain = await wrapper.instance().getCards('Vehicles', {});
     expect(wrapper.state('isActive')).toEqual('Vehicles');
-  });
-
-  it('fetches randomFilm upon componentDidMount', async () => {
-    const film = mockData.cleaned.film;
-    const mockGetMovie = jest.fn().mockImplementation(
-      () => Promise.resolve(film));
-    expect(wrapper.state('film')).toEqual({});
-    await wrapper.instance().componentDidMount();
-    expect(mockGetMovie).toHaveBeenCalled();
-    expect(wrapper.state('film')).toEqual(film);
-  });
-
-  it('Should return a people', async () => {
-
-    const cleanPeople = [{
-      name: "Luke Skywalker",
-      homeworld: 'Somewhere',
-      species: 'human',
-      population: 30000
-    }, {
-      name: "C-3P0",
-      homeworld: 'Somewhere',
-      species: 'human',
-      population: 30000
-    }];
-
-    const people = await wrapper.instance().getCards('People');
-    await expect(people).toEqual(cleanPeople);
-  });
-
-  it('Should set the state of the Cards with a object', () => {
-    const expected = [
-      {
-        pname: "Luke Skywalker",
-        phomeworld: 'Somewhere',
-        pspecies: 'human',
-        population: 30000
-      }, {
-        name: "C-3P0",
-        homeworld: 'Somewhere',
-        species: 'human',
-        population: 30000
-      }
-    ];
-    const apiData = mockData.mockCleanPeople();
-    wrapper.instance().setCardsState(apiData);
-    expect(wrapper.state('cards')).toEqual(expected);
-  });
+  })
 
   it('Should call removeFavorites if card is in array', () => {
     const retrieved = {
@@ -168,6 +110,8 @@ describe('App shallow', () => {
     wrapper.instance().showFavorites();
     expect(wrapper.state('cards')).toEqual(favorites);
   });
-});
+  
+})
+
 
 

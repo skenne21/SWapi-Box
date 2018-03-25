@@ -13,7 +13,14 @@ const Favorites = ({favorites, showFavorites}) => {
           name={'View Favorites'}
           controlFunc={showFavorites}
         />
-        <p className='number'>{favorites.length}</p>
+        {
+          !favorites.length ?
+            <p> No Favorites Saved: {favorites.length}</p>
+            :
+            <p className='number'>
+            {favorites.length}
+            </p>
+        }
       </div>
     );
   };
