@@ -6,7 +6,7 @@ const fetchApiData = async (url) => {
     const apiData = await response.json();
     return apiData;
   } catch (error) {
-    throw (new Error(`Error retriving Starwars data: ${error}`))
+    throw new Error('Failed to fetch data')
   }
 }
 
@@ -106,12 +106,14 @@ const cleanVehicles = async (vehicleData) => {
 
 export default {
   cleanMovie,
-  cleanYear, 
+  cleanYear,
+  cleanVehicles, 
   fetchMovie, 
   fetchPeople, 
   fetchPlanets, 
   fetchVehicles,
   fetchHomeWorlds,
   fetchSpecies, 
-  fetchApiData
+  fetchApiData,
+  fetchResidents
 };

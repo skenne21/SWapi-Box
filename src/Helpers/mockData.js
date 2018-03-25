@@ -1,14 +1,12 @@
 const mockData = {
   "cleaned": {
     "people": {
-      "info": {
-        "name": "Luke Skywalker",
+      "class": "people",
+      "name": "Luke Skywalker",
+      "data": {
         "homeworld": "Naboo",
         "species": "Human" 
       },
-      "favorite": false,
-      "id": 1098234,
-      "type": 'peopleData'
     },
     "film": {
       "scroll": "STAR WARS...",
@@ -16,27 +14,23 @@ const mockData = {
       "date": "2017"
     },
     "planet": [{
-      "info": {
-        "name": "NABOO",
+      "class": "planet",
+      "name": "NABOO",
+      "data": {
         "terrain": "sandy",
         "population": "4",
         "climate": "hot",
-        "residents": "no residents"
+        "residents": "none"
       },
-      "favorite": false,
-      "id": 9823742,
-      "type": "planetData"
     }],
     "vehicle": [{
-      "info": {
-        "name": "ship",
+      "class": "vehicles",
+      "name":"ship",
+      "data": {
         "model": "seven",
         "class": "wheeled",
         "passengers": "9"
       },
-      "favorite": false,
-      "id": 98345,
-      "type": "vehicleData"
     }]
   },
   "people": {

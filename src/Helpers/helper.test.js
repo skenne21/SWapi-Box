@@ -13,6 +13,16 @@ describe('Api Fetch', () => {
       const apiCall = helper.fetchApiData('people');
       expect(window.fetch).toHaveBeenCalled();
   })
+
+  it('should catch errors', () => {
+      window.fetch = jest.fn().mockImplementation(() => Promise.resolve({  status: 500 }))
+      
+
+      const apiCall = helper.fetchApiData()
+      const expected = Error('Failed to fetch data')
+
+      expect(apiCall).rejects.toEqual(expected)
+    })
 })
 
 describe('Movie', () => {
@@ -84,26 +94,20 @@ describe('People', () => {
     expect(window.fetch).toHaveBeenCalledWith(url);
   })
 
-  // it('Should return a clean Person object', ()=> {
-
-  //   const response = {results: [{
-  //     "gender": "Male",
-  //     "homeworld": "https://swapi.co/api/planets/1/",
-  //     "name": "Luke Skywalker",
-  //     "species": ["https://swapi.co/api/species/1/"]
-  //   }]};
-
-  //   const expected = [{
-  //     class: 'people',
-  //     "name": "Luke Skywalker",
-  //     data: {
-  //       "homeworld": "Naboo",
-  //       "species": "Human",
-  //       "population": "200000"
-  //     }}];
-
-  //   expect(helper.fetchPeople()).toEqual(expected)
-  // })
+  it('Should return a clean Person object', async ()=> {
+    
+    const expected  = [{
+      "class": "people",
+       "data": {
+          "homeworld": undefined,
+          "population": undefined,
+          "species": undefined
+        }, 
+      "name": "Luke Skywalker"
+    }]
+    const people = await helper.fetchPeople()
+    expect(people).toEqual(expected)
+  })
 
   it('should fetch homeworld with the right params', () => {
 
@@ -114,19 +118,19 @@ describe('People', () => {
 
   });
 
-  // it('Should return a homeworld object', () =>{
-  //   const url = "https://swapi.co/api/planets/1/";
+  it('Should return a homeworld object', async () =>{
+    const url = "https://swapi.co/api/planets/1/";
     
 
-  //   const expected = {
-  //    "homeworld": "Naboo",
-  //     "population": "200000"
-  //   }
+    const expected = {
+     "homeworld": undefined,
+     "population": undefined
+    }
 
-  //   helper.fetchHomeWorlds(url);
+    const world = await helper.fetchHomeWorlds(url);
     
-  //   expect(helper.fetchHomeWorlds(url).homeworld).toBeDefined()
-  // })
+    expect(world).toEqual(expected)
+  })
 
   it('Should call fetchSpecies with the right url', () => {
     const url = "https://swapi.co/api/species/1/";
@@ -135,13 +139,126 @@ describe('People', () => {
     expect(window.fetch).toHaveBeenCalledWith(url);
   })
 
-  // it('Should return a species' ,() => { 
-  //   const expected = 'Human';
-  //   const url = "https://swapi.co/api/species/1/";
-  //   helper.fetchSpecies(url);
-  //   expect(helper.fetchSpecies(url)).toEqual(expected) 
-  // })
+  it('Should return a species' ,async() => { 
+    const expected = undefined;
+    const url = "https://swapi.co/api/species/1/";
+    const species =  await helper.fetchSpecies(url);
+    expect(species).toEqual(expected) 
+  })
   
+})
+
+describe('Planets', () =>{
+  let response;
+
+  beforeEach(() => {
+    response = {
+      results: [{
+      "climate": "temperate",
+      "name": "Alderaan",
+      "population": "200000",
+      "terrain": "grasslands, mountains",
+      "orbital_period": "304",
+      "residents": [
+          "https://swapi.co/api/people/5/", 
+          "https://swapi.co/api/people/68/", 
+          "https://swapi.co/api/people/81/"
+        ]
+    }]}
+
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve(response)
+    }));
+  })
+
+  it('Should fetch a plant with the right url', () => {
+    const url = 'https://swapi.co/api/planets'
+    helper.fetchPlanets();
+    expect(window.fetch).toHaveBeenCalledWith(url)
+  })
+
+  it('Shoule return a planet object', async () => {
+    const expected = [{
+      "class": "planet",
+       "data": {
+          "climate": "temperate",
+          "population": "200000",
+          "residents": ", , ",
+          "terrain": "grasslands, mountains"
+        }, 
+        "name": "Alderaan"
+      }]
+    const planets = await helper.fetchPlanets();
+    expect(planets).toEqual(expected);
+
+  })
+
+  it('Should fetch residents with the right url', async () =>{
+    const url = 'https://swapi.co/api/people/1/' ;
+
+    const before = [
+      "https://swapi.co/api/people/1/", 
+    ]
+    await helper.fetchResidents(before) 
+    expect(window.fetch).toHaveBeenCalledWith(url);
+  })
+
+  it('Should return the name of the residents', async () =>{
+    const before = [
+      "https://swapi.co/api/people/1/", 
+    ]
+    const expected = [undefined];
+    const resident = await helper.fetchResidents(before);
+    expect(resident).toEqual(expected)
+  })
+})
+
+describe('vechicles', () => {
+  let response;
+
+  beforeEach(() => {
+    response = { results: [{
+      "cargo_capacity": "50000",
+      "crew": "46",
+      "model": "Digger Crawler",
+      "name": "Sand Crawler",
+      "passengers": "30",
+      "vehicle_class": "wheeled"
+    }]};
+
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve(response)
+    }));
+  })
+
+  it('Should call fetchVehicles with the right url', () => {
+    const url = 'https://swapi.co/api/vehicles';
+    helper.fetchVehicles();
+    expect(window.fetch).toHaveBeenCalledWith(url);
+  })
+
+  it('Should clean a vehicle', async () => {
+    let response = { results: [ { cargo_capacity: '50000',
+      crew: '46',
+      model: 'Digger Crawler',
+      name: 'Sand Crawler',
+      passengers: '30',
+      vehicle_class: 'wheeled' }]
+    }
+    const expected = [{
+      "class": "vehicle", 
+      "data": {
+        "model": "Digger Crawler",
+         "passengers": "30", 
+         "vehicleClass": "wheeled"
+       }, "name": "Sand Crawler"
+     }]
+
+    const vehicle = await helper.cleanVehicles(response);
+    expect(vehicle).toEqual(expected)
+  })
 })
 
 
