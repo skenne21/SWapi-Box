@@ -1,17 +1,27 @@
 import helper from './helper.js';
 import mockData from './mockData.js';
 
-// jest.mock('./helper.js');
+describe('Api Fetch', () => {
+  it('Should fetch data from the api, if status is at or below 200', () => {
+    
+    window.fetch = jest.fn().mockImplementation(()=> 
+      Promise.resolve({
+        status: 200,
+        json: () => Promise.resolve({})
+      }))
+      expect(window.fetch).not.toHaveBeenCalled();
+      const apiCall = helper.fetchApiData('people');
+      expect(window.fetch).toHaveBeenCalled();
+  })
+})
 
 describe('Movie', () => {
-  let mockMovieApi, randomMovie;
+  let randomMovie;
 
   beforeEach( () => {
-    mockMovieApi = mockData.mockMovie();
-
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       ok: 'true',
-      json: () =>  Promise.resolve(mockMovieApi)
+      json: () =>  Promise.resolve(mockData)
     }));
 
     randomMovie = 3;
@@ -31,113 +41,107 @@ describe('Movie', () => {
   });
 
   it('Should create film object', () => {
-    const expected = {
-      title: 'The Empire Strikes Back',
-      opening: 'It is a dark time for the...',
-      release: '1980'
-    };
-
-    helper.cleanMovie(mockMovieApi);
-    expect(helper.cleanMovie(mockMovieApi)).toEqual(expected);
+    
+    const mockFilm = mockData.films.results[0];
+    const expected = helper.cleanMovie(mockFilm)
+    expect(expected.title).toEqual('A New Hope');
+    expect(expected.opening).toEqual('It is a period of civil war....')
+    expect(expected.release).toEqual('1977')
   });
+
+  it('Should clean up the year that is passed in from api', () => {
+    const dates = ['2002', '05', '16'];
+    const date = '2002-05-16';
+    const expectedDate = '2002';
+    helper.cleanYear(date);
+    expect(dates[0]).toEqual(expectedDate);
+  })
 });
 
-// not working!!!
-// describe('People', () => {
-//   describe('fetchPeople method', () => {
-//     let mockPeopleApi;
+describe('People', () => {
+  let response;
 
-//     beforeEach( () => {
-//       mockPeopleApi = mockData.mockApiPeople();
+  beforeEach(() => {
+    response = {results: [{
+      "gender": "Male",
+      "homeworld": "https://swapi.co/api/planets/1/",
+      "name": "Luke Skywalker",
+      "species": ["https://swapi.co/api/species/1/"]
+    }]};
+
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: true,
+      json: () => Promise.resolve(response)
+    }));
+
+  })
+
+  it('Should call fetch with the right url for fetchPeople', ()=> {
+
+    const url = 'https://swapi.co/api/people';
+
+    helper.fetchPeople();
+    expect(window.fetch).toHaveBeenCalledWith(url);
+  })
+
+  // it('Should return a clean Person object', ()=> {
+
+  //   const response = {results: [{
+  //     "gender": "Male",
+  //     "homeworld": "https://swapi.co/api/planets/1/",
+  //     "name": "Luke Skywalker",
+  //     "species": ["https://swapi.co/api/species/1/"]
+  //   }]};
+
+  //   const expected = [{
+  //     class: 'people',
+  //     "name": "Luke Skywalker",
+  //     data: {
+  //       "homeworld": "Naboo",
+  //       "species": "Human",
+  //       "population": "200000"
+  //     }}];
+
+  //   expect(helper.fetchPeople()).toEqual(expected)
+  // })
+
+  it('should fetch homeworld with the right params', () => {
+
+    const url = "https://swapi.co/api/planets/1/";
+
+    helper.fetchHomeWorlds(url);
+    expect(window.fetch).toHaveBeenCalledWith(url);
+
+  });
+
+  // it('Should return a homeworld object', () =>{
+  //   const url = "https://swapi.co/api/planets/1/";
     
-//       window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
-//         ok: 'true',
-//         json: () =>  Promise.resolve(mockPeopleApi)
-//       }));
-//     });
+
+  //   const expected = {
+  //    "homeworld": "Naboo",
+  //     "population": "200000"
+  //   }
+
+  //   helper.fetchHomeWorlds(url);
+    
+  //   expect(helper.fetchHomeWorlds(url).homeworld).toBeDefined()
+  // })
+
+  it('Should call fetchSpecies with the right url', () => {
+    const url = "https://swapi.co/api/species/1/";
+
+    helper.fetchSpecies(url);
+    expect(window.fetch).toHaveBeenCalledWith(url);
+  })
+
+  // it('Should return a species' ,() => { 
+  //   const expected = 'Human';
+  //   const url = "https://swapi.co/api/species/1/";
+  //   helper.fetchSpecies(url);
+  //   expect(helper.fetchSpecies(url)).toEqual(expected) 
+  // })
+  
+})
 
 
-//     it('Should fetch with the right parameters', async () => {
-//       helper.fetchPeople();
-//       expect(window.fetch).toHaveBeenCalledWith('https://swapi.co/api/people')
-//     });
-
-//     it('Should call the fetchHomeWorlds function', () => {
-//       const mockFetchHomeWorlds = jest.fn();
-//       const mockFetchSpecies = jest.fn()
-//       helper.fetchPeople();
-//       expect(mockFetchHomeWorlds).toHaveBeenCalledWith(mockPeopleApi);
-//     })
-
-//     it('Should call the fetchSpecies function', () => {
-//       const expected = [
-//         {
-//         name: "Luke Skywalker",
-//         species: ["https://swapi.co/api/species/1/"],
-//         homeWorldName: "Tatooine", 
-//         population: "200000"
-//         },{
-//           name: "C-3PO",
-//           species: ["https://swapi.co/api/species/1/"],
-//           homeWorldName: "Tatooine", 
-//           population: "200000"
-//         }
-//       ]
-//       const mockFetchHomeWorlds = jest.fn();
-//       const mockFetchSpecies = jest.fn()
-//       helper.fetchPeople();
-//       expect(mockFetchSpecies).toHaveBeenCalledWith(mockPeopleApi);
-//     })
-
-//     it('Should return a resolved object', () => {
-//       const expected = [
-//         {
-//           name: "Luke Skywalker",
-//           homeworld: 'Somewhere',
-//           species: 'human',
-//           population: 30000
-//         }, {
-//           name: "C-3P0",
-//           homeworld: 'Somewhere',
-//           species: 'human',
-//           population: 30000
-//         }
-//       ]
-//       helper.fetchPeople();
-//       expect(helper.fetchPeople(mockMovieApi)).toEqual(expected)
-//     })
-
-//     it('Should handle a error if it does not get the right response',() => {
-
-//     })
-
-
-      
-//   });  
-      
-//   describe('fetchHomeWorlds methods', () => {
-//     let mockApi;
-
-//     beforeEach(() => {
-//       mockApi = mockData.mockHomelandsData();
-
-//       window.fetch = jest.fn().mockIMplementation( () => Promise.resolve({
-//         ok: 'true',
-//         json: () => Promise.resolve()
-//       })) 
-//     })
-
-//     it('Should call fetch with the url that it is passed', () => {
-//       // helper.fetchHomeWorlds();
-
-//     })
-
-//     it('should return the resolved object', () => {
-
-//     })
-
-//     it('should produce an error if the resonse is not okay', () => {
-
-//     })
-//   })
-// })

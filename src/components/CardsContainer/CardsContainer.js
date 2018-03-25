@@ -12,8 +12,6 @@ const CardsContainer = ({cards, toggleFavorites, showFavorites, favorites, targe
     card={card}
     />)
 
-  
-
   return (
     <div className='CardsContainer'> 
       {createCards}
@@ -23,7 +21,10 @@ const CardsContainer = ({cards, toggleFavorites, showFavorites, favorites, targe
 
 CardsContainer.propTypes = {
   cards: PropType.array.isRequired, 
-  toggleFavorites: PropType.func.isRequired
+  toggleFavorites: PropType.func,
+  showFavorites: PropType.func,
+  favorites: PropType.array,
+  targetFavorites: PropType.func
 }
 
 export default CardsContainer;

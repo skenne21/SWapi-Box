@@ -94,10 +94,7 @@ ShallowWrapper {
                               "species": "Human",
                             }
           }
-          homeWorldName="Tatooine"
-          name="Luke Skywalker"
-          population="200000"
-          species="Human"
+          className={undefined}
           toggleFavorites={undefined}
 />,
         <Card
@@ -109,10 +106,7 @@ ShallowWrapper {
                               "species": "Droid",
                             }
           }
-          homeWorldName="Tatooine"
-          name="C-3PO"
-          population="200000"
-          species="Droid"
+          className={undefined}
           toggleFavorites={undefined}
 />,
       ],
@@ -122,7 +116,7 @@ ShallowWrapper {
     "rendered": Array [
       Object {
         "instance": null,
-        "key": "Luke Skywalker0",
+        "key": "NaN",
         "nodeType": "function",
         "props": Object {
           "card": Object {
@@ -131,10 +125,7 @@ ShallowWrapper {
             "population": "200000",
             "species": "Human",
           },
-          "homeWorldName": "Tatooine",
-          "name": "Luke Skywalker",
-          "population": "200000",
-          "species": "Human",
+          "className": undefined,
           "toggleFavorites": undefined,
         },
         "ref": null,
@@ -143,7 +134,7 @@ ShallowWrapper {
       },
       Object {
         "instance": null,
-        "key": "C-3PO1",
+        "key": "NaN",
         "nodeType": "function",
         "props": Object {
           "card": Object {
@@ -152,10 +143,7 @@ ShallowWrapper {
             "population": "200000",
             "species": "Droid",
           },
-          "homeWorldName": "Tatooine",
-          "name": "C-3PO",
-          "population": "200000",
-          "species": "Droid",
+          "className": undefined,
           "toggleFavorites": undefined,
         },
         "ref": null,
@@ -181,10 +169,7 @@ ShallowWrapper {
                                     "species": "Human",
                                   }
             }
-            homeWorldName="Tatooine"
-            name="Luke Skywalker"
-            population="200000"
-            species="Human"
+            className={undefined}
             toggleFavorites={undefined}
 />,
           <Card
@@ -196,10 +181,7 @@ ShallowWrapper {
                                     "species": "Droid",
                                   }
             }
-            homeWorldName="Tatooine"
-            name="C-3PO"
-            population="200000"
-            species="Droid"
+            className={undefined}
             toggleFavorites={undefined}
 />,
         ],
@@ -209,7 +191,7 @@ ShallowWrapper {
       "rendered": Array [
         Object {
           "instance": null,
-          "key": "Luke Skywalker0",
+          "key": "NaN",
           "nodeType": "function",
           "props": Object {
             "card": Object {
@@ -218,10 +200,7 @@ ShallowWrapper {
               "population": "200000",
               "species": "Human",
             },
-            "homeWorldName": "Tatooine",
-            "name": "Luke Skywalker",
-            "population": "200000",
-            "species": "Human",
+            "className": undefined,
             "toggleFavorites": undefined,
           },
           "ref": null,
@@ -230,7 +209,7 @@ ShallowWrapper {
         },
         Object {
           "instance": null,
-          "key": "C-3PO1",
+          "key": "NaN",
           "nodeType": "function",
           "props": Object {
             "card": Object {
@@ -239,10 +218,7 @@ ShallowWrapper {
               "population": "200000",
               "species": "Droid",
             },
-            "homeWorldName": "Tatooine",
-            "name": "C-3PO",
-            "population": "200000",
-            "species": "Droid",
+            "className": undefined,
             "toggleFavorites": undefined,
           },
           "ref": null,
