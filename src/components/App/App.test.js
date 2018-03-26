@@ -4,6 +4,17 @@ import {shallow} from 'enzyme';
 import App from './App';
 import mockData from '../../Helpers/mockData.js';
 
+global.localStorage = {
+  getItem(keyword) {
+    if (!global.localStorage[keyword]) {
+            return null;
+    }
+    return JSON.stringify(global.localStorage[keyword]);
+  },
+  setItem(keyword, value) {
+          global.localStorage[keyword] = value;
+  }
+}; 
 
 
 describe("App shallow", () => {
@@ -103,6 +114,7 @@ describe("App shallow", () => {
     "passengers": "Passengers: 30",
     "vehicleClass": "Vehicle Class: wheeled"
     }, "name": "Name: Sand Crawler"}];
+
 
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       ok: 'true',
@@ -210,6 +222,22 @@ describe("App shallow", () => {
     wrapper.instance().showFavorites();
     expect(wrapper.state('cards')).toEqual(favorites);
   });
+
+  it('Should set favorites to local storage', () => {
+    const mockData = [{card:'hello'}]
+    wrapper.setState({favorites: mockData})
+    
+    wrapper.instance().setLocalStorage()
+    const storage = JSON.parse(global.localStorage.getItem('favorites'))
+    expect(JSON.parse(storage)).toEqual(mockData)
+  })
+
+  it('Should get items from localStorage', () =>{
+    const mockData = [{card:'hello'}]
+    global.localStorage.setItem('favorites', mockData)
+    const storage = wrapper.instance().getFromStorage();
+    expect(wrapper.state('favorites')).toEqual(mockData)
+  })
   
 })
 

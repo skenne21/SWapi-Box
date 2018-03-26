@@ -4,8 +4,6 @@
   flex-direction: column;
   width: 23%;
   margin: 7px;
-
-  
 }
 
 .planet, 
@@ -13,7 +11,7 @@
 .vehicle {
   border-radius: 40px;
   width: 100%;
-  background-color: #000000b0;
+  background-color: #000000e8;
 }
 
 .planet {
