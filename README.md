@@ -30,7 +30,7 @@ You can run the testing suite with `npm test`.
 
 ## Future
 
-I would like to add more star Wars data in the furture, with pulling in starship information or allowing the user to see more data if the choice to.
+I would like to add more star Wars data in the furture, with pulling in starship information or allowing the user to see more data that comes from the api.
 
 ## Screenshot
 ![full page Home screen](./src/assets/homepage.png)
