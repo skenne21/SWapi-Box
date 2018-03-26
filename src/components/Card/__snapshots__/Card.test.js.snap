@@ -8,7 +8,7 @@ ShallowWrapper {
     card={
         Object {
             "class": "people",
-            "data": Object {
+            "info": Object {
               "homeWorldName": "homeworld: Tatooine",
               "population": "Population: 200000",
               "species": "species: Human",
@@ -41,7 +41,7 @@ ShallowWrapper {
                 card={
                         Object {
                                 "class": "people",
-                                "data": Object {
+                                "info": Object {
                                   "homeWorldName": "homeworld: Tatooine",
                                   "population": "Population: 200000",
                                   "species": "species: Human",
@@ -85,7 +85,7 @@ ShallowWrapper {
             card={
                         Object {
                                     "class": "people",
-                                    "data": Object {
+                                    "info": Object {
                                       "homeWorldName": "homeworld: Tatooine",
                                       "population": "Population: 200000",
                                       "species": "species: Human",
@@ -137,7 +137,7 @@ ShallowWrapper {
           "props": Object {
             "card": Object {
               "class": "people",
-              "data": Object {
+              "info": Object {
                 "homeWorldName": "homeworld: Tatooine",
                 "population": "Population: 200000",
                 "species": "species: Human",
@@ -209,7 +209,7 @@ ShallowWrapper {
                     card={
                               Object {
                                         "class": "people",
-                                        "data": Object {
+                                        "info": Object {
                                           "homeWorldName": "homeworld: Tatooine",
                                           "population": "Population: 200000",
                                           "species": "species: Human",
@@ -253,7 +253,7 @@ ShallowWrapper {
               card={
                             Object {
                                           "class": "people",
-                                          "data": Object {
+                                          "info": Object {
                                             "homeWorldName": "homeworld: Tatooine",
                                             "population": "Population: 200000",
                                             "species": "species: Human",
@@ -305,7 +305,7 @@ ShallowWrapper {
             "props": Object {
               "card": Object {
                 "class": "people",
-                "data": Object {
+                "info": Object {
                   "homeWorldName": "homeworld: Tatooine",
                   "population": "Population: 200000",
                   "species": "species: Human",

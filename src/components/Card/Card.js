@@ -7,9 +7,9 @@ const Card = (props) => {
   const { card, className, toggleFavorites} = props;
 
   const createCards = () => {
-    const keys = Object.keys(card.data);
+    const keys = Object.keys(card.info);
     const cardDetails = keys.map((detail, index) => {
-      return (<h3 className='detail' key={index}>{card.data[detail]}</h3>);
+      return (<h3 className='detail' key={index}>{card.info[detail]}</h3>);
     });
     return cardDetails;
   };

@@ -26,4 +26,27 @@ describe('Button', () => {
     wrapper.find('button').simulate('click');
     expect(mockControlFunc).toHaveBeenCalledWith(name, card);
   });
+
+  it('Should had an ID of selected if active = name passed', () => {
+    wrapper = shallow(<Button 
+      name={name} 
+      controlFunc={mockControlFunc}
+      isActive={'People'}
+      card={card}
+    />);
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it('Should had an ID of selected if card.id is undefined', () => {
+    const card = {
+      id: undefined
+    };
+    wrapper = shallow(<Button 
+      name={name} 
+      controlFunc={mockControlFunc}
+      isActive={'People'}
+      card={card}
+    />);
+    expect(wrapper).toMatchSnapshot();
+  });
 });

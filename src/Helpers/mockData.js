@@ -3,7 +3,7 @@ const mockData = {
     "people": {
       "class": "people",
       "name": "Luke Skywalker",
-      "data": {
+      "info": {
         "homeworld": "Naboo",
         "species": "Human" 
       },
@@ -16,7 +16,7 @@ const mockData = {
     "planet": [{
       "class": "planet",
       "name": "NABOO",
-      "data": {
+      "info": {
         "terrain": "sandy",
         "population": "4",
         "climate": "hot",
@@ -26,7 +26,7 @@ const mockData = {
     "vehicle": [{
       "class": "vehicles",
       "name":"ship",
-      "data": {
+      "info": {
         "model": "seven",
         "class": "wheeled",
         "passengers": "9"

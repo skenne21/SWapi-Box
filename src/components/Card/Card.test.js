@@ -6,7 +6,7 @@ describe('Card', () => {
   const card = {
     class: 'people',
     name: "Luke Skywalker",
-    data: {
+    info: {
       species: "species: Human", 
       homeWorldName:  "homeworld: Tatooine", 
       population: "Population: 200000"

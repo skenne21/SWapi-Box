@@ -17,7 +17,7 @@ const Button = ({className, name, controlFunc, isActive, card = {}}) => {
       <button
         className={className}
         id={selected() ? 'selected' : ''}
-        onClick={(() => { controlFunc(name, card)}) }>{name}</button> 
+        onClick={(() => { controlFunc(name, card); })}>{name}</button> 
     </div>
   );
 };
@@ -26,7 +26,8 @@ Button.propTypes = {
   name: PropTypes.string.isRequired,
   controlFunc: PropTypes.func, 
   isActive: PropTypes.string, 
-  card: PropTypes.object
+  card: PropTypes.object,
+  className: PropTypes.string
 };
 
 export default Button;
