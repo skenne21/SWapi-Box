@@ -8,10 +8,10 @@ describe('Api Fetch', () => {
       Promise.resolve({
         status: 200,
         json: () => Promise.resolve({})
-      }))
-      expect(window.fetch).not.toHaveBeenCalled();
-      const apiCall = helper.fetchApiData('people');
-      expect(window.fetch).toHaveBeenCalled();
+    }))
+    expect(window.fetch).not.toHaveBeenCalled();
+    const apiCall = helper.fetchApiData('people');
+    expect(window.fetch).toHaveBeenCalled();
   })
 
   it('should catch errors', () => {

@@ -4,6 +4,8 @@ import {shallow} from 'enzyme';
 import App from './App';
 import mockData from '../../Helpers/mockData.js';
 
+
+
 describe("App shallow", () => {
   let wrapper;
 
@@ -39,14 +41,112 @@ describe("App shallow", () => {
     expect(wrapper.state('targetFavorites')).toEqual(false);
   });
 
+  it('Should add a film object to state when getMovie is called', async() => {
+    expect(wrapper.state('film')).toEqual({});
+    await wrapper.instance().getMovie();
+    await wrapper.update();
+    expect(wrapper.state('film').title).toBeDefined();
+  });
+
   it('Should set the sate of isActive with the user input', async ()  => {
+    const card = {}
     expect(wrapper.state('isActive')).toEqual('');
-    const getCards =await wrapper.instance().getCards('People', {});
+    const getCards = await wrapper.instance().getCards('People', card);
+    wrapper.update();
     expect(wrapper.state('isActive')).toEqual('People');
-    const getCardsAgain = await wrapper.instance().getCards('Vehicles', {});
+    const getCardsAgain = await wrapper.instance().getCards('Vehicles', card);
+    wrapper.update()
     expect(wrapper.state('isActive')).toEqual('Vehicles');
   })
 
+  it('Should add a person Object to state', async () => {
+    const url = 'https://swapi.co/api/people'
+    const response = {
+      results: [{
+      "gender": "Male",
+      "homeworld": "https://swapi.co/api/planets/1/",
+      "name": "Luke Skywalker",
+      "species": ["https://swapi.co/api/species/1/"]
+    }]};
+    const expected = [{"class": "people",
+      "data": {
+        "homeworld": "Homeworld: undefined",
+        "population": "Population undefined",
+        "species": undefined
+      },
+       "name": "Name: Luke Skywalker"
+    }];
+
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: 'true',
+      json: () =>  Promise.resolve(response)
+    }));
+
+    await wrapper.instance().getCards('People', {});
+    window.fetch(url)
+    await wrapper.update();
+    expect(wrapper.state('cards')).toEqual(expected)
+  })
+
+  it('Should add a vehicle Object to state', async () => {
+    const url = 'https://swapi.co/api/vehicles';
+    const response = { results: [{
+      "cargo_capacity": "50000",
+      "crew": "46",
+      "model": "Digger Crawler",
+      "name": "Sand Crawler",
+      "passengers": "30",
+      "vehicle_class": "wheeled"
+    }]};
+    const expected = [{"class": "vehicle", 
+    "data": {"model": "Model: Digger Crawler",
+    "passengers": "Passengers: 30",
+    "vehicleClass": "Vehicle Class: wheeled"
+    }, "name": "Name: Sand Crawler"}];
+
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: 'true',
+      json: () =>  Promise.resolve(response)
+    }));
+
+    await wrapper.instance().getCards('Vehicles', {});
+    window.fetch(url)
+    await wrapper.update();
+    expect(wrapper.state('cards')).toEqual(expected)
+  })
+
+   it('Should add a planet Object to state', async () => {
+    const url = 'https://swapi.co/api/planets';
+    const response = {
+      results: [{
+      "climate": "temperate",
+      "name": "Alderaan",
+      "population": "200000",
+      "terrain": "grasslands, mountains",
+      "orbital_period": "304",
+      "residents": [ ]
+    }]};
+    const expected = [{
+      "class": "planet",
+      "data": {
+        "climate": "Climate: temperate",
+        "population": "Population: 200000",
+        "residents": "none",
+        "terrain": "Terrain: grasslands, mountains"
+      }, "name": "Name: Alderaan"
+    }];
+
+    window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
+      ok: 'true',
+      json: () =>  Promise.resolve(response)
+    }));
+
+    await wrapper.instance().getCards('Planets', {});
+    window.fetch(url)
+    await wrapper.update();
+    expect(wrapper.state('cards')).toEqual(expected)
+  })
+ 
   it('Should call removeFavorites if card is in array', () => {
     const retrieved = {
       name: "C-3P0",
