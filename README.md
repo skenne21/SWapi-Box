@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Description
 
-This was an individual project to make a Star Wars facts application. A user can come to the page and get information about the people, vehicles, and planets of the Star Wars universe. Each card has a favorites button, that when clicked, will add that card to favorites which can be viewed on a seperate page. Data comes from the Star Wars API:https://swapi.co/documentation.
+This was an individual project to make a Star Wars facts application. A user can come to the page and get information about the people, vehicles, and planets of the Star Wars universe. Each card has a favorites button, that when clicked, will add that card to favorites which can be viewed on a separate page. Data comes from the Star Wars API:https://swapi.co/documentation.
 
 ## Goals of Project:
 
