@@ -4,7 +4,7 @@ import Favorites from './Favorites.js';
 
 describe('Favorites', () => {
   it('Should match the snapshot if the array is empty', () => {
-    const mockFunction = jest.fn()
+    const mockFunction = jest.fn();
     const wrapper = shallow(
       <Favorites 
         favorites={[]}
@@ -15,14 +15,15 @@ describe('Favorites', () => {
   
   it('Should match the snapshot if the array has Cards', () => {
     const card = {
-    class: 'people',
-    name: "Luke Skywalker",
-    data: {
-      species: "species: Human", 
-      homeWorldName:  "homeworld: Tatooine", 
-      population: "Population: 200000"
-    }}
-    const mockFunction = jest.fn()
+      class: 'people',
+      name: "Luke Skywalker",
+      info: {
+        species: "species: Human", 
+        homeWorldName:  "homeworld: Tatooine", 
+        population: "Population: 200000"
+      }
+    };
+    const mockFunction = jest.fn();
     const wrapper = shallow(
       <Favorites 
         favorites={[card]}

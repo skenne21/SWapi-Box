@@ -19,7 +19,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    if(localStorage.favorites) {
+    if (localStorage.favorites) {
       this.getFromStorage();
     }
     this.getMovie();
@@ -36,7 +36,7 @@ class App extends Component {
     }
   }
 
-  getCards =  async (userInput, ...args) => {
+  getCards =  async (userInput) => {
     this.setState({isActive: userInput});
     switch (userInput) {
     case 'People':
@@ -52,10 +52,9 @@ class App extends Component {
       this.setCardsState(vehicles);
       break;
     default : 
-      console.log('error')
-      break
+      break;
     }  
-  };
+  }
 
   setCardsState = (apiData) => {
     this.setState({cards: apiData});
@@ -76,31 +75,31 @@ class App extends Component {
     });
     this.setState({favorites: filterFavs});
     this.setLocalStorage();
-  }
+  };
 
   addFavorites = (card) => {
     card.id = this.state.favorites.length;
     const newFavorites = [...this.state.favorites, card];
     this.setState({favorites: newFavorites});
-    this.setLocalStorage()
-  }
+    this.setLocalStorage();
+  };
 
   setLocalStorage = () => {
-    const cards = this.state.favorites
-    const cardStringified = JSON.stringify(cards)
-    localStorage.setItem('favorites', cardStringified)
-  }
+    const cards = this.state.favorites;
+    const cardStringified = JSON.stringify(cards);
+    localStorage.setItem('favorites', cardStringified);
+  };
 
   getFromStorage = () => {
     const retrivedCards = localStorage.getItem('favorites');
-    const parsedCards = JSON.parse(retrivedCards)
-    this.setState({favorites: parsedCards})
-  }
+    const parsedCards = JSON.parse(retrivedCards);
+    this.setState({favorites: parsedCards});
+  };
 
   showFavorites = () => {
     this.setState({targetFavorites: true});
     this.setState({cards: this.state.favorites});
-  } 
+  };
 
   render() {
     const { 

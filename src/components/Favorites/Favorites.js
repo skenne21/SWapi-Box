@@ -18,7 +18,7 @@ const Favorites = ({favorites, showFavorites}) => {
             <p> No Favorites Saved: {favorites.length}</p>
             :
             <p className='number'>
-            {favorites.length}
+              {favorites.length}
             </p>
         }
       </div>

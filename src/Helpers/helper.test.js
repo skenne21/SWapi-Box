@@ -94,7 +94,7 @@ describe('People', () => {
   it('Should return a clean Person object', async ()=> {
     const expected = [{
       "class": "people",
-      "data": {
+      "info": {
         "homeworld": "Homeworld: undefined",
         "population": "Population undefined",
         "species": undefined
@@ -168,7 +168,7 @@ describe('Planets', () =>{
   it('Shoule return a planet object', async () => {
     const expected = [{
       "class": "planet",
-      "data": {
+      "info": {
         "climate": "Climate: temperate",
         "population": "Population: 200000",
         "residents": ", , ",
@@ -237,7 +237,7 @@ describe('vechicles', () => {
 
     const expected = [{
       "class": "vehicle",
-      "data": {
+      "info": {
         "model": "Model: Digger Crawler",
         "passengers": "Passengers: 30",
         "vehicleClass": "Vehicle Class: wheeled"

@@ -39,7 +39,7 @@ const fetchPeople = async () => {
     return ({
       class:'people',
       name: `Name: ${name}`,
-      data: info
+      info: info
     });
   }) 
   return Promise.all(peoplePromises)
@@ -65,7 +65,7 @@ const fetchPlanets = async () => {
     return ({
       class: 'planet',
       name: `Name: ${planet.name}`,
-      data: {
+      info: {
         terrain: `Terrain: ${planet.terrain}`,
         population: `Population: ${planet.population}`,
         climate: `Climate: ${planet.climate}`,
@@ -95,7 +95,7 @@ const cleanVehicles = async (vehicleData) => {
   const vehicles = vehicleData.results.map( async vehicle => ({
     class: 'vehicle',
     name: `Name: ${vehicle.name}`,
-    data: {
+    info: {
       model: `Model: ${vehicle.model}`,
       passengers: `Passengers: ${vehicle.passengers}`,
       vehicleClass: `Vehicle Class: ${vehicle.vehicle_class}`

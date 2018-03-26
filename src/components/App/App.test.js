@@ -1,18 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import {shallow} from 'enzyme';
 import App from './App';
-import mockData from '../../Helpers/mockData.js';
 
 global.localStorage = {
   getItem(keyword) {
     if (!global.localStorage[keyword]) {
-            return null;
+      return null;
     }
     return JSON.stringify(global.localStorage[keyword]);
   },
   setItem(keyword, value) {
-          global.localStorage[keyword] = value;
+    global.localStorage[keyword] = value;
   }
 }; 
 
@@ -24,9 +22,9 @@ describe("App shallow", () => {
     wrapper = shallow(<App />, {disableLifecycleMethods: true});
   });
 
-  it("Should match the snapShot" , () => {
-    expect(wrapper).toMatchSnapshot()
-  })
+  it("Should match the snapShot", () => {
+    expect(wrapper).toMatchSnapshot();
+  });
 
   it('Should a default state empty object for films', () => {
     expect(wrapper.state('film')).toEqual({});
@@ -60,32 +58,34 @@ describe("App shallow", () => {
   });
 
   it('Should set the sate of isActive with the user input', async ()  => {
-    const card = {}
+    const card = {};
     expect(wrapper.state('isActive')).toEqual('');
-    const getCards = await wrapper.instance().getCards('People', card);
+    await wrapper.instance().getCards('People', card);
     wrapper.update();
     expect(wrapper.state('isActive')).toEqual('People');
-    const getCardsAgain = await wrapper.instance().getCards('Vehicles', card);
-    wrapper.update()
+    await wrapper.instance().getCards('Vehicles', card);
+    wrapper.update();
     expect(wrapper.state('isActive')).toEqual('Vehicles');
-  })
+  });
 
   it('Should add a person Object to state', async () => {
-    const url = 'https://swapi.co/api/people'
+    const url = 'https://swapi.co/api/people';
     const response = {
       results: [{
-      "gender": "Male",
-      "homeworld": "https://swapi.co/api/planets/1/",
-      "name": "Luke Skywalker",
-      "species": ["https://swapi.co/api/species/1/"]
-    }]};
-    const expected = [{"class": "people",
-      "data": {
+        "gender": "Male",
+        "homeworld": "https://swapi.co/api/planets/1/",
+        "name": "Luke Skywalker",
+        "species": ["https://swapi.co/api/species/1/"]
+      }]
+    };
+    const expected = [{
+      "class": "people",
+      "info": {
         "homeworld": "Homeworld: undefined",
         "population": "Population undefined",
         "species": undefined
       },
-       "name": "Name: Luke Skywalker"
+      "name": "Name: Luke Skywalker"
     }];
 
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
@@ -94,10 +94,10 @@ describe("App shallow", () => {
     }));
 
     await wrapper.instance().getCards('People', {});
-    window.fetch(url)
+    window.fetch(url);
     await wrapper.update();
-    expect(wrapper.state('cards')).toEqual(expected)
-  })
+    expect(wrapper.state('cards')).toEqual(expected);
+  });
 
   it('Should add a vehicle Object to state', async () => {
     const url = 'https://swapi.co/api/vehicles';
@@ -109,12 +109,15 @@ describe("App shallow", () => {
       "passengers": "30",
       "vehicle_class": "wheeled"
     }]};
-    const expected = [{"class": "vehicle", 
-    "data": {"model": "Model: Digger Crawler",
-    "passengers": "Passengers: 30",
-    "vehicleClass": "Vehicle Class: wheeled"
-    }, "name": "Name: Sand Crawler"}];
-
+    const expected = [{
+      "class": "vehicle", 
+      "info": {
+        "model": "Model: Digger Crawler",
+        "passengers": "Passengers: 30",
+        "vehicleClass": "Vehicle Class: wheeled"
+      }, 
+      "name": "Name: Sand Crawler"
+    }];
 
     window.fetch = jest.fn().mockImplementation(() => Promise.resolve({
       ok: 'true',
@@ -122,25 +125,26 @@ describe("App shallow", () => {
     }));
 
     await wrapper.instance().getCards('Vehicles', {});
-    window.fetch(url)
+    window.fetch(url);
     await wrapper.update();
-    expect(wrapper.state('cards')).toEqual(expected)
-  })
+    expect(wrapper.state('cards')).toEqual(expected);
+  });
 
-   it('Should add a planet Object to state', async () => {
+  it('Should add a planet Object to state', async () => {
     const url = 'https://swapi.co/api/planets';
     const response = {
       results: [{
-      "climate": "temperate",
-      "name": "Alderaan",
-      "population": "200000",
-      "terrain": "grasslands, mountains",
-      "orbital_period": "304",
-      "residents": [ ]
-    }]};
+        "climate": "temperate",
+        "name": "Alderaan",
+        "population": "200000",
+        "terrain": "grasslands, mountains",
+        "orbital_period": "304",
+        "residents": []
+      }]
+    };
     const expected = [{
       "class": "planet",
-      "data": {
+      "info": {
         "climate": "Climate: temperate",
         "population": "Population: 200000",
         "residents": "none",
@@ -154,10 +158,10 @@ describe("App shallow", () => {
     }));
 
     await wrapper.instance().getCards('Planets', {});
-    window.fetch(url)
+    window.fetch(url);
     await wrapper.update();
-    expect(wrapper.state('cards')).toEqual(expected)
-  })
+    expect(wrapper.state('cards')).toEqual(expected);
+  });
  
   it('Should call removeFavorites if card is in array', () => {
     const retrieved = {
@@ -224,22 +228,21 @@ describe("App shallow", () => {
   });
 
   it('Should set favorites to local storage', () => {
-    const mockData = [{card:'hello'}]
-    wrapper.setState({favorites: mockData})
+    const mockData = [{card:'hello'}];
+    wrapper.setState({favorites: mockData});
     
-    wrapper.instance().setLocalStorage()
-    const storage = JSON.parse(global.localStorage.getItem('favorites'))
-    expect(JSON.parse(storage)).toEqual(mockData)
-  })
+    wrapper.instance().setLocalStorage();
+    const storage = JSON.parse(global.localStorage.getItem('favorites'));
+    expect(JSON.parse(storage)).toEqual(mockData);
+  });
 
   it('Should get items from localStorage', () =>{
-    const mockData = [{card:'hello'}]
-    global.localStorage.setItem('favorites', mockData)
-    const storage = wrapper.instance().getFromStorage();
-    expect(wrapper.state('favorites')).toEqual(mockData)
-  })
-  
-})
+    const mockData = [{card:'hello'}];
+    global.localStorage.setItem('favorites', mockData);
+    wrapper.instance().getFromStorage();
+    expect(wrapper.state('favorites')).toEqual(mockData);
+  });
+});
 
 
 
