@@ -1,7 +1,6 @@
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
-
 # SWAPIbox
-## Individual: Sabrina Kennedy,
+
+## Individual: [Sabrina Kennedy](https://github.com/skenne21), 
 
 ## Description
 
@@ -9,13 +8,13 @@ This was an individual project to make a Star Wars facts application. A user can
 
 ## Goals of Project:
 
-1)Get comfortable whipping together React components on your own with the additional complexity of implementing React Router (if you want to).
-2)Write squeaky clean, well refactored code using ES6 syntax.
-3)Make informed design decisions to create a user-friendly application.
-4)Keep state based components to a minimum and leverage more functional components.
-5)Use a modular architecture for your application file structure.
-6)Think deeply about React Lifecycle Methods.
-7)Use propTypes for every component receiving props.
+* Get comfortable whipping together React components on your own with the additional complexity of implementing React Router (if you want to).
+* Write squeaky clean, well refactored code using ES6 syntax.
+* )Make informed design decisions to create a user-friendly application.
+* Keep state based components to a minimum and leverage more functional components.
+* Use a modular architecture for your application file structure.
+* Think deeply about React Lifecycle Methods.
+* Use propTypes for every component receiving props.
 
 ## Set Up
 
@@ -33,6 +32,10 @@ You can run the testing suite with `npm test`.
 I would like to add more star Wars data in the furture, with pulling in starship information or allowing the user to see more data that comes from the api.
 
 ## Screenshot
+
+#### Homepage
 ![full page Home screen](./src/assets/homepage.png)
+
+#### Cards page
 ![full page Cards screen](./src/assets/cards.png)
 
