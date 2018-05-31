@@ -10,7 +10,7 @@ This was an individual project to make a Star Wars facts application. A user can
 
 * Get comfortable whipping together React components on your own with the additional complexity of implementing React Router (if you want to).
 * Write squeaky clean, well refactored code using ES6 syntax.
-* )Make informed design decisions to create a user-friendly application.
+* Make informed design decisions to create a user-friendly application.
 * Keep state based components to a minimum and leverage more functional components.
 * Use a modular architecture for your application file structure.
 * Think deeply about React Lifecycle Methods.
